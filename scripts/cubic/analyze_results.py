@@ -87,8 +87,10 @@ def parse_flowmonitor(filename):
                     delay_ns / rx_packets
                 ) / 1e6
 
+            if rx_packets > 1:
+
                 avg_jitter_ms = (
-                    jitter_ns / rx_packets
+                    jitter_ns / (rx_packets - 1)
                 ) / 1e6
 
             if tx_packets > 0:
@@ -125,24 +127,30 @@ def parse_flowmonitor(filename):
                 "loss_rate": loss_rate,
                 "throughput_mbps": throughput_mbps,
                 "avg_delay_ms": avg_delay_ms,
-                "avg_jitter_ms": avg_jitter_ms
+                "avg_jitter_ms": avg_jitter_ms,
+                "first_rx_ns": first_rx_ns,
+                "last_rx_ns": last_rx_ns
             })
 
     return results
 
 
-def print_results(results):
+def print_results(results, algorithm, delay, run):
 
     print("\n==========================================")
-    print("       TCP CUBIC - RESULTADOS")
+    print(f"       TCP {algorithm.upper()} - RESULTADOS")
+    print(f"       Atraso: {delay} ms | Repetição: {run}")
     print("==========================================\n")
 
     total_tx = 0
     total_rx = 0
     total_lost = 0
+    total_tx_packets = 0
 
     total_delay = 0
     total_jitter = 0
+    total_rx_packets = 0
+    total_jitter_samples = 0
 
     for result in results:
 
@@ -163,49 +171,67 @@ def print_results(results):
         total_tx += result["tx_bytes"]
         total_rx += result["rx_bytes"]
         total_lost += result["lost_packets"]
+        total_tx_packets += result["tx_packets"]
 
-        total_delay += result["avg_delay_ms"]
-        total_jitter += result["avg_jitter_ms"]
+        total_delay += (
+            result["avg_delay_ms"] * result["rx_packets"]
+        )
+
+        total_jitter += (
+            result["avg_jitter_ms"] * max(result["rx_packets"] - 1, 0)
+        )
+
+        total_rx_packets += result["rx_packets"]
+
+        total_jitter_samples += max(
+            result["rx_packets"] - 1, 0
+        )
 
     print("==========================================")
     print("          RESUMO DO CENÁRIO")
     print("==========================================")
 
-    print(f"Fluxos CUBIC:       {len(results)}")
+    print(f"Fluxos {algorithm.upper()}: {len(results)}")
     print(f"TX total:           {total_tx} bytes")
     print(f"RX total:           {total_rx} bytes")
     print(f"Pacotes perdidos:   {total_lost}")
 
     if results:
 
-        total_throughput = sum(
-            r["throughput_mbps"]
-            for r in results
+        first_rx = min(
+            r["first_rx_ns"] for r in results
         )
 
-        avg_loss = sum(
-            r["loss_rate"]
-            for r in results
-        ) / len(results)
-
-        avg_delay = total_delay / len(results)
-        avg_jitter = total_jitter / len(results)
-
-        print(
-            f"Throughput agregado: {total_throughput:.2f} Mbps"
+        last_rx = max(
+            r["last_rx_ns"] for r in results
         )
 
-        print(
-            f"Perda média:         {avg_loss:.2f}%"
+        duration_seconds = (last_rx - first_rx) / 1e9
+
+        total_throughput = (
+            (total_rx * 8) / duration_seconds / 1e6
+            if duration_seconds > 0 else 0
         )
 
-        print(
-            f"Atraso médio:        {avg_delay:.2f} ms"
+        avg_loss = (
+            (total_lost / total_tx_packets) * 100
+            if total_tx_packets > 0 else 0
         )
 
-        print(
-            f"Jitter médio:        {avg_jitter:.2f} ms"
+        avg_delay = (
+            total_delay / total_rx_packets
+            if total_rx_packets > 0 else 0
         )
+
+        avg_jitter = (
+            total_jitter / total_jitter_samples
+            if total_jitter_samples > 0 else 0
+        )
+
+        print(f"Throughput agregado: {total_throughput:.2f} Mbps")
+        print(f"Perda agregada:      {avg_loss:.2f}%")
+        print(f"Atraso médio:        {avg_delay:.2f} ms")
+        print(f"Jitter médio:        {avg_jitter:.2f} ms")
 
     print()
 
@@ -244,21 +270,10 @@ def analyze_data_file(filename):
     return values
 
 
-def print_tcp_metrics(scenario):
-
-    project_dir = os.path.expanduser(
-        "~/TCP_CUBIC-PerfomanceProposal"
-    )
-
-    results_dir = os.path.join(
-        project_dir,
-        "results",
-        "cubic",
-        scenario
-    )
+def print_tcp_metrics(results_dir, algorithm):
 
     print("\n==========================================")
-    print("       MÉTRICAS TCP CUBIC")
+    print(f"       MÉTRICAS TCP {algorithm.upper()}")
     print("==========================================\n")
 
     for flow in range(4):
@@ -285,21 +300,17 @@ def print_tcp_metrics(scenario):
                 if value > 0
             ]
 
-            print(
-                f"  CWND mínimo:   {min(cwnd_values):.2f}"
-            )
-
-            print(
-                f"  CWND máximo:   {max(cwnd_values):.2f}"
-            )
-
-            print(
-                f"  CWND médio:    "
-                f"{sum(cwnd_values) / len(cwnd_values):.2f}"
-            )
+            if cwnd_values:
+                print(f"  CWND mínimo:   {min(cwnd_values):.2f}")
+                print(f"  CWND máximo:   {max(cwnd_values):.2f}")
+                print(
+                    f"  CWND médio:    "
+                    f"{sum(cwnd_values) / len(cwnd_values):.2f}"
+                )
+            else:
+                print("  CWND: sem dados válidos")
 
         else:
-
             print("  CWND: sem dados")
 
         if rtt:
@@ -309,23 +320,17 @@ def print_tcp_metrics(scenario):
                 if value > 0
             ]
 
-            print(
-                f"  RTT mínimo:    "
-                f"{min(rtt_values) * 1000:.2f} ms"
-            )
-
-            print(
-                f"  RTT máximo:    "
-                f"{max(rtt_values) * 1000:.2f} ms"
-            )
-
-            print(
-                f"  RTT médio:     "
-                f"{sum(rtt_values) / len(rtt_values) * 1000:.2f} ms"
-            )
+            if rtt_values:
+                print(f"  RTT mínimo:    {min(rtt_values) * 1000:.2f} ms")
+                print(f"  RTT máximo:    {max(rtt_values) * 1000:.2f} ms")
+                print(
+                    f"  RTT médio:     "
+                    f"{sum(rtt_values) / len(rtt_values) * 1000:.2f} ms"
+                )
+            else:
+                print("  RTT: sem dados válidos")
 
         else:
-
             print("  RTT: sem dados")
 
         print()
@@ -333,26 +338,43 @@ def print_tcp_metrics(scenario):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 4:
 
         print("Uso:")
         print(
-            "python3 scripts/cubic/analyze_results.py <cenario>"
+            "python3 scripts/cubic/analyze_results.py "
+            "<algoritmo> <atraso> <repeticao>"
+        )
+
+        print("\nExemplo:")
+        print(
+            "python3 scripts/cubic/analyze_results.py Cubic 10 1"
         )
 
         sys.exit(1)
 
-    scenario = sys.argv[1]
+    algorithm = sys.argv[1].capitalize()
+    delay = sys.argv[2]
+    run = sys.argv[3]
+
+    if algorithm not in ("Cubic", "Bbr"):
+        print("Algoritmo inválido. Utilize Cubic ou Bbr.")
+        sys.exit(1)
 
     project_dir = os.path.expanduser(
         "~/TCP_CUBIC-PerfomanceProposal"
     )
 
-    flowmonitor = os.path.join(
+    results_dir = os.path.join(
         project_dir,
         "results",
-        "cubic",
-        scenario,
+        algorithm,
+        f"atraso_{delay}",
+        f"run_{run}"
+    )
+
+    flowmonitor = os.path.join(
+        results_dir,
         "CubicExperiment.flowmonitor"
     )
 
@@ -365,6 +387,6 @@ if __name__ == "__main__":
 
     results = parse_flowmonitor(flowmonitor)
 
-    print_results(results)
+    print_results(results, algorithm, delay, run)
 
-    print_tcp_metrics(scenario)
+    print_tcp_metrics(results_dir, algorithm)
