@@ -353,14 +353,25 @@ if __name__ == "__main__":
 
         sys.exit(1)
 
-    algorithm = sys.argv[1].capitalize()
+    algorithm_map = {
+    "cubic": "Cubic",
+    "bbr": "Bbr",
+    "cubicrtt": "CubicRtt"
+}
+
+    algorithm = algorithm_map.get(sys.argv[1].lower())
+    
+    if algorithm is None:
+        print("Algoritmo inválido. Utilize Cubic, Bbr ou CubicRtt.")
+        sys.exit(1)
+    
     delay = sys.argv[2]
     run = sys.argv[3]
-
-    if algorithm not in ("Cubic", "Bbr"):
-        print("Algoritmo inválido. Utilize Cubic ou Bbr.")
+    
+    if algorithm not in ("Cubic", "Bbr", "CubicRtt"):
+        print("Algoritmo inválido. Utilize Cubic, Bbr ou CubicRtt.")
         sys.exit(1)
-
+    
     project_dir = os.path.expanduser(
         "~/TCP_CUBIC-PerfomanceProposal"
     )

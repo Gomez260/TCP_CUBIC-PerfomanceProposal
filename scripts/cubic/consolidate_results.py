@@ -11,7 +11,7 @@ PROJECT_DIR = os.path.abspath(
 
 DELAYS = (10, 50, 100)
 RUNS = range(1, 6)
-ALGORITHMS = ("Cubic", "Bbr")
+ALGORITHMS = ("Cubic", "Bbr", "CubicRtt")
 
 UINT32_MAX = 4294967295
 

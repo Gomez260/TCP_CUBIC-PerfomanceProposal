@@ -47,7 +47,7 @@ run_experiment() {
     fi
 }
 
-for algorithm in Cubic Bbr
+for algorithm in CubicRtt 
 do
     for delay in 10 50 100
     do
@@ -59,5 +59,5 @@ do
 done
 
 echo "======================================"
-echo "30 SIMULAÇÕES CONCLUÍDAS!"
+echo "45 SIMULAÇÕES CONCLUÍDAS!"
 echo "======================================"
