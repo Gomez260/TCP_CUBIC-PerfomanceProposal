@@ -1,0 +1,2027 @@
+BATERIA ROBUSTEZ | Tue Nov 10 09:17:41 -03 2026 | esperadas=675
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_1
+[OK]
+executadas=1 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_2
+[OK]
+executadas=2 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_3
+[OK]
+executadas=3 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_4
+[OK]
+executadas=4 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_5
+[OK]
+executadas=5 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_1
+[OK]
+executadas=6 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_2
+[OK]
+executadas=7 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_3
+[OK]
+executadas=8 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_4
+[OK]
+executadas=9 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_5
+[OK]
+executadas=10 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_1
+[OK]
+executadas=11 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_2
+[OK]
+executadas=12 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_3
+[OK]
+executadas=13 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_4
+[OK]
+executadas=14 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_5
+[OK]
+executadas=15 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_1
+[OK]
+executadas=16 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_2
+[OK]
+executadas=17 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_3
+[OK]
+executadas=18 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_4
+[OK]
+executadas=19 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_5
+[OK]
+executadas=20 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/50ms/run_1
+[OK]
+executadas=21 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/50ms/run_2
+[OK]
+executadas=22 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/50ms/run_3
+[OK]
+executadas=23 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/50ms/run_4
+[OK]
+executadas=24 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/50ms/run_5
+[OK]
+executadas=25 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/100ms/run_1
+[OK]
+executadas=26 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/100ms/run_2
+[OK]
+executadas=27 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/100ms/run_3
+[OK]
+executadas=28 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/100ms/run_4
+[OK]
+executadas=29 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/100ms/run_5
+[OK]
+executadas=30 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/10ms/run_1
+[OK]
+executadas=31 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/10ms/run_2
+[OK]
+executadas=32 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/10ms/run_3
+[OK]
+executadas=33 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/10ms/run_4
+[OK]
+executadas=34 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/10ms/run_5
+[OK]
+executadas=35 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/50ms/run_1
+[OK]
+executadas=36 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/50ms/run_2
+[OK]
+executadas=37 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/50ms/run_3
+[OK]
+executadas=38 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/50ms/run_4
+[OK]
+executadas=39 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/50ms/run_5
+[OK]
+executadas=40 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/100ms/run_1
+[OK]
+executadas=41 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/100ms/run_2
+[OK]
+executadas=42 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/100ms/run_3
+[OK]
+executadas=43 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/100ms/run_4
+[OK]
+executadas=44 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.05/100ms/run_5
+[OK]
+executadas=45 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/10ms/run_1
+[OK]
+executadas=46 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/10ms/run_2
+[OK]
+executadas=47 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/10ms/run_3
+[OK]
+executadas=48 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/10ms/run_4
+[OK]
+executadas=49 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/10ms/run_5
+[OK]
+executadas=50 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/50ms/run_1
+[OK]
+executadas=51 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/50ms/run_2
+[OK]
+executadas=52 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/50ms/run_3
+[OK]
+executadas=53 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/50ms/run_4
+[OK]
+executadas=54 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/50ms/run_5
+[OK]
+executadas=55 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/100ms/run_1
+[OK]
+executadas=56 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/100ms/run_2
+[OK]
+executadas=57 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/100ms/run_3
+[OK]
+executadas=58 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/100ms/run_4
+[OK]
+executadas=59 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.00/100ms/run_5
+[OK]
+executadas=60 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/10ms/run_1
+[OK]
+executadas=61 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/10ms/run_2
+[OK]
+executadas=62 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/10ms/run_3
+[OK]
+executadas=63 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/10ms/run_4
+[OK]
+executadas=64 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/10ms/run_5
+[OK]
+executadas=65 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/50ms/run_1
+[OK]
+executadas=66 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/50ms/run_2
+[OK]
+executadas=67 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/50ms/run_3
+[OK]
+executadas=68 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/50ms/run_4
+[OK]
+executadas=69 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/50ms/run_5
+[OK]
+executadas=70 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/100ms/run_1
+[OK]
+executadas=71 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/100ms/run_2
+[OK]
+executadas=72 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/100ms/run_3
+[OK]
+executadas=73 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/100ms/run_4
+[OK]
+executadas=74 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.025/100ms/run_5
+[OK]
+executadas=75 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/10ms/run_1
+[OK]
+executadas=76 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/10ms/run_2
+[OK]
+executadas=77 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/10ms/run_3
+[OK]
+executadas=78 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/10ms/run_4
+[OK]
+executadas=79 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/10ms/run_5
+[OK]
+executadas=80 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/50ms/run_1
+[OK]
+executadas=81 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/50ms/run_2
+[OK]
+executadas=82 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/50ms/run_3
+[OK]
+executadas=83 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/50ms/run_4
+[OK]
+executadas=84 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/50ms/run_5
+[OK]
+executadas=85 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/100ms/run_1
+[OK]
+executadas=86 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/100ms/run_2
+[OK]
+executadas=87 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/100ms/run_3
+[OK]
+executadas=88 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/100ms/run_4
+[OK]
+executadas=89 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.05/100ms/run_5
+[OK]
+executadas=90 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/10ms/run_1
+[OK]
+executadas=91 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/10ms/run_2
+[OK]
+executadas=92 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/10ms/run_3
+[OK]
+executadas=93 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/10ms/run_4
+[OK]
+executadas=94 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/10ms/run_5
+[OK]
+executadas=95 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/50ms/run_1
+[OK]
+executadas=96 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/50ms/run_2
+[OK]
+executadas=97 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/50ms/run_3
+[OK]
+executadas=98 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/50ms/run_4
+[OK]
+executadas=99 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/50ms/run_5
+[OK]
+executadas=100 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/100ms/run_1
+[OK]
+executadas=101 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/100ms/run_2
+[OK]
+executadas=102 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/100ms/run_3
+[OK]
+executadas=103 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/100ms/run_4
+[OK]
+executadas=104 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.10_G0.10/100ms/run_5
+[OK]
+executadas=105 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/10ms/run_1
+[OK]
+executadas=106 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/10ms/run_2
+[OK]
+executadas=107 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/10ms/run_3
+[OK]
+executadas=108 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/10ms/run_4
+[OK]
+executadas=109 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/10ms/run_5
+[OK]
+executadas=110 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/50ms/run_1
+[OK]
+executadas=111 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/50ms/run_2
+[OK]
+executadas=112 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/50ms/run_3
+[OK]
+executadas=113 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/50ms/run_4
+[OK]
+executadas=114 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/50ms/run_5
+[OK]
+executadas=115 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/100ms/run_1
+[OK]
+executadas=116 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/100ms/run_2
+[OK]
+executadas=117 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/100ms/run_3
+[OK]
+executadas=118 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/100ms/run_4
+[OK]
+executadas=119 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.00/100ms/run_5
+[OK]
+executadas=120 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/10ms/run_1
+[OK]
+executadas=121 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/10ms/run_2
+[OK]
+executadas=122 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/10ms/run_3
+[OK]
+executadas=123 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/10ms/run_4
+[OK]
+executadas=124 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/10ms/run_5
+[OK]
+executadas=125 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/50ms/run_1
+[OK]
+executadas=126 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/50ms/run_2
+[OK]
+executadas=127 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/50ms/run_3
+[OK]
+executadas=128 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/50ms/run_4
+[OK]
+executadas=129 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/50ms/run_5
+[OK]
+executadas=130 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/100ms/run_1
+[OK]
+executadas=131 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/100ms/run_2
+[OK]
+executadas=132 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/100ms/run_3
+[OK]
+executadas=133 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/100ms/run_4
+[OK]
+executadas=134 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.25_G0.025/100ms/run_5
+[OK]
+executadas=135 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/10ms/run_1
+[OK]
+executadas=136 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/10ms/run_2
+[OK]
+executadas=137 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/10ms/run_3
+[OK]
+executadas=138 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/10ms/run_4
+[OK]
+executadas=139 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/10ms/run_5
+[OK]
+executadas=140 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/50ms/run_1
+[OK]
+executadas=141 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/50ms/run_2
+[OK]
+executadas=142 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/50ms/run_3
+[OK]
+executadas=143 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/50ms/run_4
+[OK]
+executadas=144 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/50ms/run_5
+[OK]
+executadas=145 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/100ms/run_1
+[OK]
+executadas=146 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/100ms/run_2
+[OK]
+executadas=147 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/100ms/run_3
+[OK]
+executadas=148 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/100ms/run_4
+[OK]
+executadas=149 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.00/100ms/run_5
+[OK]
+executadas=150 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/10ms/run_1
+[OK]
+executadas=151 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/10ms/run_2
+[OK]
+executadas=152 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/10ms/run_3
+[OK]
+executadas=153 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/10ms/run_4
+[OK]
+executadas=154 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/10ms/run_5
+[OK]
+executadas=155 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/50ms/run_1
+[OK]
+executadas=156 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/50ms/run_2
+[OK]
+executadas=157 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/50ms/run_3
+[OK]
+executadas=158 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/50ms/run_4
+[OK]
+executadas=159 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/50ms/run_5
+[OK]
+executadas=160 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/100ms/run_1
+[OK]
+executadas=161 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/100ms/run_2
+[OK]
+executadas=162 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/100ms/run_3
+[OK]
+executadas=163 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/100ms/run_4
+[OK]
+executadas=164 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.50_G0.025/100ms/run_5
+[OK]
+executadas=165 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/10ms/run_1
+[OK]
+executadas=166 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/10ms/run_2
+[OK]
+executadas=167 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/10ms/run_3
+[OK]
+executadas=168 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/10ms/run_4
+[OK]
+executadas=169 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/10ms/run_5
+[OK]
+executadas=170 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/50ms/run_1
+[OK]
+executadas=171 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/50ms/run_2
+[OK]
+executadas=172 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/50ms/run_3
+[OK]
+executadas=173 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/50ms/run_4
+[OK]
+executadas=174 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/50ms/run_5
+[OK]
+executadas=175 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/100ms/run_1
+[OK]
+executadas=176 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/100ms/run_2
+[OK]
+executadas=177 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/100ms/run_3
+[OK]
+executadas=178 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/100ms/run_4
+[OK]
+executadas=179 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.00/100ms/run_5
+[OK]
+executadas=180 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/10ms/run_1
+[OK]
+executadas=181 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/10ms/run_2
+[OK]
+executadas=182 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/10ms/run_3
+[OK]
+executadas=183 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/10ms/run_4
+[OK]
+executadas=184 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/10ms/run_5
+[OK]
+executadas=185 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/50ms/run_1
+[OK]
+executadas=186 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/50ms/run_2
+[OK]
+executadas=187 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/50ms/run_3
+[OK]
+executadas=188 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/50ms/run_4
+[OK]
+executadas=189 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/50ms/run_5
+[OK]
+executadas=190 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/100ms/run_1
+[OK]
+executadas=191 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/100ms/run_2
+[OK]
+executadas=192 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/100ms/run_3
+[OK]
+executadas=193 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/100ms/run_4
+[OK]
+executadas=194 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.025/100ms/run_5
+[OK]
+executadas=195 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/10ms/run_1
+[OK]
+executadas=196 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/10ms/run_2
+[OK]
+executadas=197 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/10ms/run_3
+[OK]
+executadas=198 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/10ms/run_4
+[OK]
+executadas=199 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/10ms/run_5
+[OK]
+executadas=200 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/50ms/run_1
+[OK]
+executadas=201 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/50ms/run_2
+[OK]
+executadas=202 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/50ms/run_3
+[OK]
+executadas=203 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/50ms/run_4
+[OK]
+executadas=204 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/50ms/run_5
+[OK]
+executadas=205 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/100ms/run_1
+[OK]
+executadas=206 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/100ms/run_2
+[OK]
+executadas=207 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/100ms/run_3
+[OK]
+executadas=208 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/100ms/run_4
+[OK]
+executadas=209 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.05/100ms/run_5
+[OK]
+executadas=210 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/10ms/run_1
+[OK]
+executadas=211 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/10ms/run_2
+[OK]
+executadas=212 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/10ms/run_3
+[OK]
+executadas=213 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/10ms/run_4
+[OK]
+executadas=214 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/10ms/run_5
+[OK]
+executadas=215 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/50ms/run_1
+[OK]
+executadas=216 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/50ms/run_2
+[OK]
+executadas=217 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/50ms/run_3
+[OK]
+executadas=218 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/50ms/run_4
+[OK]
+executadas=219 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/50ms/run_5
+[OK]
+executadas=220 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/100ms/run_1
+[OK]
+executadas=221 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/100ms/run_2
+[OK]
+executadas=222 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/100ms/run_3
+[OK]
+executadas=223 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/100ms/run_4
+[OK]
+executadas=224 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/CubicRtt_A0.75_G0.10/100ms/run_5
+[OK]
+executadas=225 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/10ms/run_1
+[OK]
+executadas=226 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/10ms/run_2
+[OK]
+executadas=227 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/10ms/run_3
+[OK]
+executadas=228 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/10ms/run_4
+[OK]
+executadas=229 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/10ms/run_5
+[OK]
+executadas=230 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/50ms/run_1
+[OK]
+executadas=231 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/50ms/run_2
+[OK]
+executadas=232 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/50ms/run_3
+[OK]
+executadas=233 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/50ms/run_4
+[OK]
+executadas=234 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/50ms/run_5
+[OK]
+executadas=235 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/100ms/run_1
+[OK]
+executadas=236 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/100ms/run_2
+[OK]
+executadas=237 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/100ms/run_3
+[OK]
+executadas=238 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/100ms/run_4
+[OK]
+executadas=239 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Cubic/100ms/run_5
+[OK]
+executadas=240 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/10ms/run_1
+[OK]
+executadas=241 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/10ms/run_2
+[OK]
+executadas=242 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/10ms/run_3
+[OK]
+executadas=243 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/10ms/run_4
+[OK]
+executadas=244 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/10ms/run_5
+[OK]
+executadas=245 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/50ms/run_1
+[OK]
+executadas=246 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/50ms/run_2
+[OK]
+executadas=247 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/50ms/run_3
+[OK]
+executadas=248 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/50ms/run_4
+[OK]
+executadas=249 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/50ms/run_5
+[OK]
+executadas=250 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/100ms/run_1
+[OK]
+executadas=251 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/100ms/run_2
+[OK]
+executadas=252 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/100ms/run_3
+[OK]
+executadas=253 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/100ms/run_4
+[OK]
+executadas=254 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/Bbr/100ms/run_5
+[OK]
+executadas=255 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/10ms/run_1
+[OK]
+executadas=256 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/10ms/run_2
+[OK]
+executadas=257 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/10ms/run_3
+[OK]
+executadas=258 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/10ms/run_4
+[OK]
+executadas=259 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/10ms/run_5
+[OK]
+executadas=260 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/50ms/run_1
+[OK]
+executadas=261 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/50ms/run_2
+[OK]
+executadas=262 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/50ms/run_3
+[OK]
+executadas=263 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/50ms/run_4
+[OK]
+executadas=264 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/50ms/run_5
+[OK]
+executadas=265 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/100ms/run_1
+[OK]
+executadas=266 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/100ms/run_2
+[OK]
+executadas=267 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/100ms/run_3
+[OK]
+executadas=268 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/100ms/run_4
+[OK]
+executadas=269 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.05/100ms/run_5
+[OK]
+executadas=270 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/10ms/run_1
+[OK]
+executadas=271 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/10ms/run_2
+[OK]
+executadas=272 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/10ms/run_3
+[OK]
+executadas=273 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/10ms/run_4
+[OK]
+executadas=274 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/10ms/run_5
+[OK]
+executadas=275 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/50ms/run_1
+[OK]
+executadas=276 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/50ms/run_2
+[OK]
+executadas=277 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/50ms/run_3
+[OK]
+executadas=278 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/50ms/run_4
+[OK]
+executadas=279 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/50ms/run_5
+[OK]
+executadas=280 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/100ms/run_1
+[OK]
+executadas=281 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/100ms/run_2
+[OK]
+executadas=282 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/100ms/run_3
+[OK]
+executadas=283 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/100ms/run_4
+[OK]
+executadas=284 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.00/100ms/run_5
+[OK]
+executadas=285 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/10ms/run_1
+[OK]
+executadas=286 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/10ms/run_2
+[OK]
+executadas=287 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/10ms/run_3
+[OK]
+executadas=288 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/10ms/run_4
+[OK]
+executadas=289 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/10ms/run_5
+[OK]
+executadas=290 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/50ms/run_1
+[OK]
+executadas=291 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/50ms/run_2
+[OK]
+executadas=292 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/50ms/run_3
+[OK]
+executadas=293 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/50ms/run_4
+[OK]
+executadas=294 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/50ms/run_5
+[OK]
+executadas=295 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/100ms/run_1
+[OK]
+executadas=296 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/100ms/run_2
+[OK]
+executadas=297 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/100ms/run_3
+[OK]
+executadas=298 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/100ms/run_4
+[OK]
+executadas=299 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.025/100ms/run_5
+[OK]
+executadas=300 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/10ms/run_1
+[OK]
+executadas=301 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/10ms/run_2
+[OK]
+executadas=302 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/10ms/run_3
+[OK]
+executadas=303 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/10ms/run_4
+[OK]
+executadas=304 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/10ms/run_5
+[OK]
+executadas=305 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/50ms/run_1
+[OK]
+executadas=306 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/50ms/run_2
+[OK]
+executadas=307 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/50ms/run_3
+[OK]
+executadas=308 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/50ms/run_4
+[OK]
+executadas=309 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/50ms/run_5
+[OK]
+executadas=310 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/100ms/run_1
+[OK]
+executadas=311 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/100ms/run_2
+[OK]
+executadas=312 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/100ms/run_3
+[OK]
+executadas=313 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/100ms/run_4
+[OK]
+executadas=314 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.05/100ms/run_5
+[OK]
+executadas=315 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/10ms/run_1
+[OK]
+executadas=316 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/10ms/run_2
+[OK]
+executadas=317 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/10ms/run_3
+[OK]
+executadas=318 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/10ms/run_4
+[OK]
+executadas=319 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/10ms/run_5
+[OK]
+executadas=320 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/50ms/run_1
+[OK]
+executadas=321 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/50ms/run_2
+[OK]
+executadas=322 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/50ms/run_3
+[OK]
+executadas=323 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/50ms/run_4
+[OK]
+executadas=324 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/50ms/run_5
+[OK]
+executadas=325 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/100ms/run_1
+[OK]
+executadas=326 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/100ms/run_2
+[OK]
+executadas=327 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/100ms/run_3
+[OK]
+executadas=328 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/100ms/run_4
+[OK]
+executadas=329 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.10_G0.10/100ms/run_5
+[OK]
+executadas=330 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/10ms/run_1
+[OK]
+executadas=331 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/10ms/run_2
+[OK]
+executadas=332 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/10ms/run_3
+[OK]
+executadas=333 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/10ms/run_4
+[OK]
+executadas=334 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/10ms/run_5
+[OK]
+executadas=335 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/50ms/run_1
+[OK]
+executadas=336 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/50ms/run_2
+[OK]
+executadas=337 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/50ms/run_3
+[OK]
+executadas=338 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/50ms/run_4
+[OK]
+executadas=339 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/50ms/run_5
+[OK]
+executadas=340 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/100ms/run_1
+[OK]
+executadas=341 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/100ms/run_2
+[OK]
+executadas=342 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/100ms/run_3
+[OK]
+executadas=343 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/100ms/run_4
+[OK]
+executadas=344 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.00/100ms/run_5
+[OK]
+executadas=345 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/10ms/run_1
+[OK]
+executadas=346 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/10ms/run_2
+[OK]
+executadas=347 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/10ms/run_3
+[OK]
+executadas=348 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/10ms/run_4
+[OK]
+executadas=349 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/10ms/run_5
+[OK]
+executadas=350 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/50ms/run_1
+[OK]
+executadas=351 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/50ms/run_2
+[OK]
+executadas=352 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/50ms/run_3
+[OK]
+executadas=353 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/50ms/run_4
+[OK]
+executadas=354 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/50ms/run_5
+[OK]
+executadas=355 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/100ms/run_1
+[OK]
+executadas=356 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/100ms/run_2
+[OK]
+executadas=357 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/100ms/run_3
+[OK]
+executadas=358 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/100ms/run_4
+[OK]
+executadas=359 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.25_G0.025/100ms/run_5
+[OK]
+executadas=360 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/10ms/run_1
+[OK]
+executadas=361 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/10ms/run_2
+[OK]
+executadas=362 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/10ms/run_3
+[OK]
+executadas=363 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/10ms/run_4
+[OK]
+executadas=364 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/10ms/run_5
+[OK]
+executadas=365 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/50ms/run_1
+[OK]
+executadas=366 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/50ms/run_2
+[OK]
+executadas=367 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/50ms/run_3
+[OK]
+executadas=368 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/50ms/run_4
+[OK]
+executadas=369 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/50ms/run_5
+[OK]
+executadas=370 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/100ms/run_1
+[OK]
+executadas=371 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/100ms/run_2
+[OK]
+executadas=372 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/100ms/run_3
+[OK]
+executadas=373 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/100ms/run_4
+[OK]
+executadas=374 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.00/100ms/run_5
+[OK]
+executadas=375 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/10ms/run_1
+[OK]
+executadas=376 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/10ms/run_2
+[OK]
+executadas=377 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/10ms/run_3
+[OK]
+executadas=378 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/10ms/run_4
+[OK]
+executadas=379 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/10ms/run_5
+[OK]
+executadas=380 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/50ms/run_1
+[OK]
+executadas=381 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/50ms/run_2
+[OK]
+executadas=382 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/50ms/run_3
+[OK]
+executadas=383 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/50ms/run_4
+[OK]
+executadas=384 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/50ms/run_5
+[OK]
+executadas=385 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/100ms/run_1
+[OK]
+executadas=386 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/100ms/run_2
+[OK]
+executadas=387 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/100ms/run_3
+[OK]
+executadas=388 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/100ms/run_4
+[OK]
+executadas=389 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.50_G0.025/100ms/run_5
+[OK]
+executadas=390 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/10ms/run_1
+[OK]
+executadas=391 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/10ms/run_2
+[OK]
+executadas=392 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/10ms/run_3
+[OK]
+executadas=393 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/10ms/run_4
+[OK]
+executadas=394 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/10ms/run_5
+[OK]
+executadas=395 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/50ms/run_1
+[OK]
+executadas=396 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/50ms/run_2
+[OK]
+executadas=397 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/50ms/run_3
+[OK]
+executadas=398 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/50ms/run_4
+[OK]
+executadas=399 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/50ms/run_5
+[OK]
+executadas=400 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/100ms/run_1
+[OK]
+executadas=401 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/100ms/run_2
+[OK]
+executadas=402 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/100ms/run_3
+[OK]
+executadas=403 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/100ms/run_4
+[OK]
+executadas=404 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.00/100ms/run_5
+[OK]
+executadas=405 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/10ms/run_1
+[OK]
+executadas=406 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/10ms/run_2
+[OK]
+executadas=407 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/10ms/run_3
+[OK]
+executadas=408 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/10ms/run_4
+[OK]
+executadas=409 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/10ms/run_5
+[OK]
+executadas=410 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/50ms/run_1
+[OK]
+executadas=411 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/50ms/run_2
+[OK]
+executadas=412 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/50ms/run_3
+[OK]
+executadas=413 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/50ms/run_4
+[OK]
+executadas=414 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/50ms/run_5
+[OK]
+executadas=415 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/100ms/run_1
+[OK]
+executadas=416 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/100ms/run_2
+[OK]
+executadas=417 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/100ms/run_3
+[OK]
+executadas=418 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/100ms/run_4
+[OK]
+executadas=419 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.025/100ms/run_5
+[OK]
+executadas=420 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/10ms/run_1
+[OK]
+executadas=421 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/10ms/run_2
+[OK]
+executadas=422 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/10ms/run_3
+[OK]
+executadas=423 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/10ms/run_4
+[OK]
+executadas=424 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/10ms/run_5
+[OK]
+executadas=425 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/50ms/run_1
+[OK]
+executadas=426 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/50ms/run_2
+[OK]
+executadas=427 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/50ms/run_3
+[OK]
+executadas=428 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/50ms/run_4
+[OK]
+executadas=429 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/50ms/run_5
+[OK]
+executadas=430 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/100ms/run_1
+[OK]
+executadas=431 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/100ms/run_2
+[OK]
+executadas=432 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/100ms/run_3
+[OK]
+executadas=433 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/100ms/run_4
+[OK]
+executadas=434 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.05/100ms/run_5
+[OK]
+executadas=435 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/10ms/run_1
+[OK]
+executadas=436 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/10ms/run_2
+[OK]
+executadas=437 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/10ms/run_3
+[OK]
+executadas=438 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/10ms/run_4
+[OK]
+executadas=439 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/10ms/run_5
+[OK]
+executadas=440 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/50ms/run_1
+[OK]
+executadas=441 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/50ms/run_2
+[OK]
+executadas=442 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/50ms/run_3
+[OK]
+executadas=443 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/50ms/run_4
+[OK]
+executadas=444 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/50ms/run_5
+[OK]
+executadas=445 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/100ms/run_1
+[OK]
+executadas=446 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/100ms/run_2
+[OK]
+executadas=447 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/100ms/run_3
+[OK]
+executadas=448 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/100ms/run_4
+[OK]
+executadas=449 puladas=0 falhas=0
+[EXECUTANDO] bw2_f8/CubicRtt_A0.75_G0.10/100ms/run_5
+[OK]
+executadas=450 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/10ms/run_1
+[OK]
+executadas=451 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/10ms/run_2
+[OK]
+executadas=452 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/10ms/run_3
+[OK]
+executadas=453 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/10ms/run_4
+[OK]
+executadas=454 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/10ms/run_5
+[OK]
+executadas=455 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/50ms/run_1
+[OK]
+executadas=456 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/50ms/run_2
+[OK]
+executadas=457 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/50ms/run_3
+[OK]
+executadas=458 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/50ms/run_4
+[OK]
+executadas=459 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/50ms/run_5
+[OK]
+executadas=460 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/100ms/run_1
+[OK]
+executadas=461 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/100ms/run_2
+[OK]
+executadas=462 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/100ms/run_3
+[OK]
+executadas=463 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/100ms/run_4
+[OK]
+executadas=464 puladas=0 falhas=0
+[EXECUTANDO] access100/Cubic/100ms/run_5
+[OK]
+executadas=465 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/10ms/run_1
+[OK]
+executadas=466 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/10ms/run_2
+[OK]
+executadas=467 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/10ms/run_3
+[OK]
+executadas=468 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/10ms/run_4
+[OK]
+executadas=469 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/10ms/run_5
+[OK]
+executadas=470 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/50ms/run_1
+[OK]
+executadas=471 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/50ms/run_2
+[OK]
+executadas=472 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/50ms/run_3
+[OK]
+executadas=473 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/50ms/run_4
+[OK]
+executadas=474 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/50ms/run_5
+[OK]
+executadas=475 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/100ms/run_1
+[OK]
+executadas=476 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/100ms/run_2
+[OK]
+executadas=477 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/100ms/run_3
+[OK]
+executadas=478 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/100ms/run_4
+[OK]
+executadas=479 puladas=0 falhas=0
+[EXECUTANDO] access100/Bbr/100ms/run_5
+[OK]
+executadas=480 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/10ms/run_1
+[OK]
+executadas=481 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/10ms/run_2
+[OK]
+executadas=482 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/10ms/run_3
+[OK]
+executadas=483 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/10ms/run_4
+[OK]
+executadas=484 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/10ms/run_5
+[OK]
+executadas=485 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/50ms/run_1
+[OK]
+executadas=486 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/50ms/run_2
+[OK]
+executadas=487 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/50ms/run_3
+[OK]
+executadas=488 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/50ms/run_4
+[OK]
+executadas=489 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/50ms/run_5
+[OK]
+executadas=490 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/100ms/run_1
+[OK]
+executadas=491 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/100ms/run_2
+[OK]
+executadas=492 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/100ms/run_3
+[OK]
+executadas=493 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/100ms/run_4
+[OK]
+executadas=494 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.05/100ms/run_5
+[OK]
+executadas=495 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/10ms/run_1
+[OK]
+executadas=496 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/10ms/run_2
+[OK]
+executadas=497 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/10ms/run_3
+[OK]
+executadas=498 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/10ms/run_4
+[OK]
+executadas=499 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/10ms/run_5
+[OK]
+executadas=500 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/50ms/run_1
+[OK]
+executadas=501 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/50ms/run_2
+[OK]
+executadas=502 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/50ms/run_3
+[OK]
+executadas=503 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/50ms/run_4
+[OK]
+executadas=504 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/50ms/run_5
+[OK]
+executadas=505 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/100ms/run_1
+[OK]
+executadas=506 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/100ms/run_2
+[OK]
+executadas=507 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/100ms/run_3
+[OK]
+executadas=508 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/100ms/run_4
+[OK]
+executadas=509 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.00/100ms/run_5
+[OK]
+executadas=510 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/10ms/run_1
+[OK]
+executadas=511 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/10ms/run_2
+[OK]
+executadas=512 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/10ms/run_3
+[OK]
+executadas=513 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/10ms/run_4
+[OK]
+executadas=514 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/10ms/run_5
+[OK]
+executadas=515 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/50ms/run_1
+[OK]
+executadas=516 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/50ms/run_2
+[OK]
+executadas=517 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/50ms/run_3
+[OK]
+executadas=518 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/50ms/run_4
+[OK]
+executadas=519 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/50ms/run_5
+[OK]
+executadas=520 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/100ms/run_1
+[OK]
+executadas=521 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/100ms/run_2
+[OK]
+executadas=522 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/100ms/run_3
+[OK]
+executadas=523 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/100ms/run_4
+[OK]
+executadas=524 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.025/100ms/run_5
+[OK]
+executadas=525 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/10ms/run_1
+[OK]
+executadas=526 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/10ms/run_2
+[OK]
+executadas=527 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/10ms/run_3
+[OK]
+executadas=528 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/10ms/run_4
+[OK]
+executadas=529 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/10ms/run_5
+[OK]
+executadas=530 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/50ms/run_1
+[OK]
+executadas=531 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/50ms/run_2
+[OK]
+executadas=532 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/50ms/run_3
+[OK]
+executadas=533 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/50ms/run_4
+[OK]
+executadas=534 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/50ms/run_5
+[OK]
+executadas=535 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/100ms/run_1
+[OK]
+executadas=536 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/100ms/run_2
+[OK]
+executadas=537 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/100ms/run_3
+[OK]
+executadas=538 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/100ms/run_4
+[OK]
+executadas=539 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.05/100ms/run_5
+[OK]
+executadas=540 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/10ms/run_1
+[OK]
+executadas=541 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/10ms/run_2
+[OK]
+executadas=542 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/10ms/run_3
+[OK]
+executadas=543 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/10ms/run_4
+[OK]
+executadas=544 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/10ms/run_5
+[OK]
+executadas=545 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/50ms/run_1
+[OK]
+executadas=546 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/50ms/run_2
+[OK]
+executadas=547 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/50ms/run_3
+[OK]
+executadas=548 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/50ms/run_4
+[OK]
+executadas=549 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/50ms/run_5
+[OK]
+executadas=550 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/100ms/run_1
+[OK]
+executadas=551 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/100ms/run_2
+[OK]
+executadas=552 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/100ms/run_3
+[OK]
+executadas=553 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/100ms/run_4
+[OK]
+executadas=554 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.10_G0.10/100ms/run_5
+[OK]
+executadas=555 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/10ms/run_1
+[OK]
+executadas=556 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/10ms/run_2
+[OK]
+executadas=557 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/10ms/run_3
+[OK]
+executadas=558 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/10ms/run_4
+[OK]
+executadas=559 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/10ms/run_5
+[OK]
+executadas=560 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/50ms/run_1
+[OK]
+executadas=561 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/50ms/run_2
+[OK]
+executadas=562 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/50ms/run_3
+[OK]
+executadas=563 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/50ms/run_4
+[OK]
+executadas=564 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/50ms/run_5
+[OK]
+executadas=565 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/100ms/run_1
+[OK]
+executadas=566 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/100ms/run_2
+[OK]
+executadas=567 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/100ms/run_3
+[OK]
+executadas=568 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/100ms/run_4
+[OK]
+executadas=569 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.00/100ms/run_5
+[OK]
+executadas=570 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/10ms/run_1
+[OK]
+executadas=571 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/10ms/run_2
+[OK]
+executadas=572 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/10ms/run_3
+[OK]
+executadas=573 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/10ms/run_4
+[OK]
+executadas=574 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/10ms/run_5
+[OK]
+executadas=575 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/50ms/run_1
+[OK]
+executadas=576 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/50ms/run_2
+[OK]
+executadas=577 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/50ms/run_3
+[OK]
+executadas=578 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/50ms/run_4
+[OK]
+executadas=579 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/50ms/run_5
+[OK]
+executadas=580 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/100ms/run_1
+[OK]
+executadas=581 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/100ms/run_2
+[OK]
+executadas=582 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/100ms/run_3
+[OK]
+executadas=583 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/100ms/run_4
+[OK]
+executadas=584 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.25_G0.025/100ms/run_5
+[OK]
+executadas=585 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/10ms/run_1
+[OK]
+executadas=586 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/10ms/run_2
+[OK]
+executadas=587 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/10ms/run_3
+[OK]
+executadas=588 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/10ms/run_4
+[OK]
+executadas=589 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/10ms/run_5
+[OK]
+executadas=590 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/50ms/run_1
+[OK]
+executadas=591 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/50ms/run_2
+[OK]
+executadas=592 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/50ms/run_3
+[OK]
+executadas=593 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/50ms/run_4
+[OK]
+executadas=594 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/50ms/run_5
+[OK]
+executadas=595 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/100ms/run_1
+[OK]
+executadas=596 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/100ms/run_2
+[OK]
+executadas=597 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/100ms/run_3
+[OK]
+executadas=598 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/100ms/run_4
+[OK]
+executadas=599 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.00/100ms/run_5
+[OK]
+executadas=600 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/10ms/run_1
+[OK]
+executadas=601 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/10ms/run_2
+[OK]
+executadas=602 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/10ms/run_3
+[OK]
+executadas=603 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/10ms/run_4
+[OK]
+executadas=604 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/10ms/run_5
+[OK]
+executadas=605 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/50ms/run_1
+[OK]
+executadas=606 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/50ms/run_2
+[OK]
+executadas=607 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/50ms/run_3
+[OK]
+executadas=608 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/50ms/run_4
+[OK]
+executadas=609 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/50ms/run_5
+[OK]
+executadas=610 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/100ms/run_1
+[OK]
+executadas=611 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/100ms/run_2
+[OK]
+executadas=612 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/100ms/run_3
+[OK]
+executadas=613 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/100ms/run_4
+[OK]
+executadas=614 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.50_G0.025/100ms/run_5
+[OK]
+executadas=615 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/10ms/run_1
+[OK]
+executadas=616 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/10ms/run_2
+[OK]
+executadas=617 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/10ms/run_3
+[OK]
+executadas=618 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/10ms/run_4
+[OK]
+executadas=619 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/10ms/run_5
+[OK]
+executadas=620 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/50ms/run_1
+[OK]
+executadas=621 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/50ms/run_2
+[OK]
+executadas=622 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/50ms/run_3
+[OK]
+executadas=623 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/50ms/run_4
+[OK]
+executadas=624 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/50ms/run_5
+[OK]
+executadas=625 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/100ms/run_1
+[OK]
+executadas=626 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/100ms/run_2
+[OK]
+executadas=627 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/100ms/run_3
+[OK]
+executadas=628 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/100ms/run_4
+[OK]
+executadas=629 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.00/100ms/run_5
+[OK]
+executadas=630 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/10ms/run_1
+[OK]
+executadas=631 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/10ms/run_2
+[OK]
+executadas=632 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/10ms/run_3
+[OK]
+executadas=633 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/10ms/run_4
+[OK]
+executadas=634 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/10ms/run_5
+[OK]
+executadas=635 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/50ms/run_1
+[OK]
+executadas=636 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/50ms/run_2
+[OK]
+executadas=637 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/50ms/run_3
+[OK]
+executadas=638 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/50ms/run_4
+[OK]
+executadas=639 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/50ms/run_5
+[OK]
+executadas=640 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/100ms/run_1
+[OK]
+executadas=641 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/100ms/run_2
+[OK]
+executadas=642 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/100ms/run_3
+[OK]
+executadas=643 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/100ms/run_4
+[OK]
+executadas=644 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.025/100ms/run_5
+[OK]
+executadas=645 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/10ms/run_1
+[OK]
+executadas=646 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/10ms/run_2
+[OK]
+executadas=647 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/10ms/run_3
+[OK]
+executadas=648 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/10ms/run_4
+[OK]
+executadas=649 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/10ms/run_5
+[OK]
+executadas=650 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/50ms/run_1
+[OK]
+executadas=651 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/50ms/run_2
+[OK]
+executadas=652 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/50ms/run_3
+[OK]
+executadas=653 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/50ms/run_4
+[OK]
+executadas=654 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/50ms/run_5
+[OK]
+executadas=655 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/100ms/run_1
+[OK]
+executadas=656 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/100ms/run_2
+[OK]
+executadas=657 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/100ms/run_3
+[OK]
+executadas=658 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/100ms/run_4
+[OK]
+executadas=659 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.05/100ms/run_5
+[OK]
+executadas=660 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/10ms/run_1
+[OK]
+executadas=661 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/10ms/run_2
+[OK]
+executadas=662 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/10ms/run_3
+[OK]
+executadas=663 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/10ms/run_4
+[OK]
+executadas=664 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/10ms/run_5
+[OK]
+executadas=665 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/50ms/run_1
+[OK]
+executadas=666 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/50ms/run_2
+[OK]
+executadas=667 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/50ms/run_3
+[OK]
+executadas=668 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/50ms/run_4
+[OK]
+executadas=669 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/50ms/run_5
+[OK]
+executadas=670 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/100ms/run_1
+[OK]
+executadas=671 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/100ms/run_2
+[OK]
+executadas=672 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/100ms/run_3
+[OK]
+executadas=673 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/100ms/run_4
+[OK]
+executadas=674 puladas=0 falhas=0
+[EXECUTANDO] access100/CubicRtt_A0.75_G0.10/100ms/run_5
+[OK]
+executadas=675 puladas=0 falhas=0
+FIM | executadas=675 puladas=0 falhas=0 esperadas=675
