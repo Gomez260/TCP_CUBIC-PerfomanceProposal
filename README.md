@@ -1,591 +1,246 @@
-# Avaliação e Aprimoramento do TCP CUBIC Baseado em RTT
+# TCP CUBIC-RTT — Avaliação de um mecanismo de controle de congestionamento baseado em RTT
 
-## 1. Introdução
+> Projeto de pesquisa desenvolvido como Trabalho de Conclusão de Curso (TCC), utilizando o **ns-3** para investigar o comportamento do TCP CUBIC e avaliar uma proposta de modificação que incorpora informações de Round-Trip Time (RTT) ao controle de congestionamento.
 
-Este projeto tem como objetivo estudar e avaliar o comportamento de diferentes algoritmos de controle de congestionamento TCP em redes com diferentes condições de atraso, tendo como foco principal a influência do **Round-Trip Time (RTT)** no desempenho da comunicação.
+## Visão geral
 
-O estudo utiliza o **ns-3 (Network Simulator 3)** para realizar simulações controladas de redes e comparar o comportamento dos protocolos **TCP CUBIC** e **TCP BBR** em diferentes cenários de RTT.
+O TCP CUBIC é um algoritmo de controle de congestionamento amplamente utilizado. Este projeto investiga como seu comportamento pode ser influenciado pela utilização explícita de informações de RTT.
 
-Além da comparação entre protocolos existentes, o projeto propõe uma segunda etapa de desenvolvimento: a criação de uma **versão modificada do TCP CUBIC**, denominada neste projeto como **CUBIC-RTT**, incorporando um mecanismo baseado nas informações de RTT para modificar o comportamento do algoritmo original.
+A proposta consiste em desenvolver e avaliar uma variante experimental denominada **TCP CUBIC-RTT**, mantendo o TCP CUBIC original como baseline. O TCP BBR também é utilizado como referência comparativa.
 
-A proposta, portanto, não se limita a identificar qual protocolo apresenta melhor desempenho. O objetivo é investigar se uma modificação no comportamento do CUBIC baseada em RTT pode proporcionar melhorias em determinadas condições de rede.
+O estudo utiliza simulações no **ns-3** para comparar os algoritmos sob diferentes condições de rede, observando tanto métricas de desempenho fim a fim quanto variáveis internas do controle de congestionamento.
 
----
+**Algoritmos avaliados:**
 
-## 2. Objetivo geral
+- **TCP CUBIC:** implementação original, utilizada como baseline.
+- **TCP CUBIC-RTT:** variante experimental derivada do CUBIC, com mecanismo de ajuste baseado em RTT.
+- **TCP BBR:** algoritmo de referência para comparação.
 
-Avaliar a influência do RTT no desempenho dos algoritmos TCP CUBIC e TCP BBR e investigar uma versão modificada do CUBIC que utilize informações de RTT em seu mecanismo de controle de congestionamento.
+O objetivo não é pressupor que a modificação seja superior, mas verificar experimentalmente em quais condições — se houver — ela apresenta benefícios e quais possíveis custos estão associados.
 
-### Objetivos específicos
+## Pergunta de pesquisa
 
-* Estudar o funcionamento do TCP CUBIC.
-* Estudar o funcionamento do TCP BBR.
-* Avaliar o comportamento dos protocolos sob diferentes valores de RTT.
-* Coletar métricas de desempenho durante as simulações.
-* Comparar o CUBIC original com o BBR.
-* Desenvolver uma cópia do CUBIC original para servir como base para a proposta de modificação.
-* Implementar um mecanismo baseado em RTT no CUBIC modificado.
-* Comparar o CUBIC original, o CUBIC modificado e o BBR.
-* Analisar se a modificação proposta apresenta benefícios em determinados cenários.
+**Como a utilização de informações de RTT nas decisões do TCP CUBIC influencia seu desempenho em diferentes condições de rede?**
 
----
+A investigação considera aspectos como utilização da capacidade do enlace, estabilidade, justiça entre fluxos, atraso e perdas de pacotes.
 
-## 3. Hipótese da pesquisa
+## Arquitetura experimental
 
-A hipótese do projeto é que o comportamento do TCP CUBIC pode ser aprimorado em determinadas condições de rede por meio da utilização explícita de informações relacionadas ao RTT durante seu processo de controle de congestionamento.
+As simulações são executadas no ns-3, com um cenário de gargalo entre dois gateways. Os fluxos TCP atravessam os enlaces de acesso e compartilham o enlace de gargalo.
 
-A proposta será avaliada experimentalmente por meio de simulações, permitindo verificar se o mecanismo baseado em RTT produz melhorias mensuráveis quando comparado ao CUBIC original.
+A topologia permite variar parâmetros como:
 
----
+- largura de banda do gargalo;
+- atraso do enlace de gargalo;
+- atraso dos enlaces de acesso;
+- quantidade de fluxos concorrentes;
+- algoritmo TCP utilizado;
+- parâmetros da proposta CUBIC-RTT;
+- número de repetições.
 
-# 4. Ambiente de simulação
+Os experimentos utilizam condições equivalentes entre algoritmos dentro de cada configuração, de modo a permitir comparações controladas.
 
-O projeto utiliza o **ns-3** como ambiente de simulação.
+### Matriz de experimentos
 
-A estrutura atual utiliza o exemplo:
+A campanha de robustez já executada contém **675 simulações**, organizadas em:
 
-```text
-examples/tcp/tcp-variants-comparison.cc
-```
+- 3 cenários de rede;
+- 15 configurações de algoritmo/parâmetros por cenário;
+- 5 repetições por configuração.
 
-Esse exemplo permite configurar diferentes parâmetros da rede e selecionar diferentes variantes de TCP para execução.
+Os cenários incluem variações na largura de banda do gargalo, no número de fluxos e no atraso dos enlaces de acesso. Os atrasos do gargalo também são variados.
 
-Entre os protocolos disponíveis está o:
+| Cenário | Largura de banda do gargalo | Fluxos | Atraso de acesso |
+| --- | ---: | ---: | ---: |
+| `bw1_f4` | 1 Mbps | 4 | 45 ms |
+| `bw2_f8` | 2 Mbps | 8 | 45 ms |
+| `access100` | 2 Mbps | 4 | 100 ms |
 
-```text
-TcpCubic
-TcpBbr
-```
+Os atrasos do gargalo avaliados são 10 ms, 50 ms e 100 ms. A largura de banda dos enlaces de acesso é de 10 Mbps e a duração configurada para a campanha é de 100 segundos por simulação.
 
-O projeto utilizará essa estrutura como base para os experimentos.
+A matriz inclui CUBIC, BBR, uma configuração baseline de CUBIC-RTT e diferentes combinações dos parâmetros Alpha e Gamma da proposta. Os valores específicos são definidos nos scripts da campanha.
 
----
+> A campanha de 675 simulações é distinta dos experimentos iniciais de 45 simulações. Seus resultados são armazenados em diretórios separados para evitar mistura entre conjuntos experimentais.
 
-# 5. Estrutura geral do projeto
+## Métricas coletadas
 
-A metodologia será dividida em três implementações principais:
+A avaliação combina métricas do **FlowMonitor** com traces internos dos sockets TCP.
 
-```text
-                    Experimentos
-                         │
-             ┌───────────┼───────────┐
-             │           │           │
-             ▼           ▼           ▼
-          CUBIC      CUBIC-RTT      BBR
-         original    modificado
-             │           │           │
-             └───────────┼───────────┘
-                         ▼
-                    Comparação
-                         │
-                         ▼
-                   Análise Python
-```
+### Métricas principais — FlowMonitor
 
-### TCP CUBIC
+| Métrica | O que permite avaliar |
+| --- | --- |
+| Throughput | Taxa efetiva de dados recebidos |
+| Taxa de perda | Proporção de pacotes transmitidos que foram perdidos |
+| Atraso médio | Tempo médio de entrega dos pacotes |
+| Jitter médio | Variação do atraso entre pacotes |
+| Jain's Fairness Index | Distribuição da vazão entre os fluxos concorrentes |
 
-Será utilizado como **baseline** do estudo.
+Essas métricas são utilizadas para comparar o desempenho fim a fim dos algoritmos.
 
-O CUBIC original será mantido sem alterações para permitir uma comparação justa com a implementação modificada.
+### Métricas complementares — traces TCP
 
-### TCP BBR
+| Trace | Unidade | Finalidade |
+| --- | --- | --- |
+| CWND (`cwnd.data`) | Bytes | Acompanhar a evolução da janela de congestionamento |
+| RTT (`rtt.data`) | Segundos no arquivo bruto; convertido para ms na análise | Observar a evolução do RTT registrado pelo socket |
+| Bytes in Flight (`inflight.data`) | Bytes | Acompanhar a quantidade de dados em trânsito |
+| Slow Start Threshold (`ssth.data`) | Bytes | Observar as alterações do limiar de slow start |
 
-Será utilizado como protocolo de referência para comparação com o CUBIC.
+Os traces ajudam a interpretar **como** os algoritmos se comportam internamente e complementam as métricas de desempenho do FlowMonitor. Eles não substituem as métricas principais.
 
-### CUBIC-RTT
+Valores especiais de inicialização do ns-3, como `UINT32_MAX` em SSThresh, são tratados separadamente na consolidação para não distorcer estatísticas como mínimo, máximo e média. O valor zero de BytesInFlight é preservado, pois representa um estado válido.
 
-Será uma nova implementação baseada no CUBIC original.
+## Implementação da proposta
 
-A ideia é criar uma cópia da implementação existente do CUBIC e, posteriormente, modificar seu comportamento para incorporar a mecânica baseada em RTT proposta no projeto.
+O TCP CUBIC original é mantido separado da implementação modificada. A variante CUBIC-RTT deriva do CUBIC e incorpora a lógica experimental baseada em RTT.
 
----
+Essa separação permite:
 
-# 6. CUBIC modificado
+1. preservar o algoritmo original como baseline;
+2. modificar a variante experimental sem alterar o CUBIC de referência;
+3. executar os algoritmos sob a mesma infraestrutura de simulação;
+4. comparar seus resultados sob as mesmas condições de rede.
 
-A implementação modificada não substituirá o CUBIC original.
+A implementação do mecanismo proposto está no código do ns-3 integrado ao repositório. Os detalhes matemáticos e os parâmetros do mecanismo devem ser consultados diretamente no código-fonte e na documentação da pesquisa, evitando tratar a hipótese de melhoria como um resultado já comprovado.
 
-Será criada uma implementação independente, conceitualmente organizada da seguinte maneira:
+## Estrutura do repositório
 
-```text
-TcpCubic
-├── tcp-cubic.cc
-└── tcp-cubic.h
-
-TcpCubicRTT
-├── tcp-cubic-rtt.cc
-└── tcp-cubic-rtt.h
-```
-
-Inicialmente, o CUBIC-RTT deverá possuir comportamento equivalente ao CUBIC original.
-
-Depois disso, será introduzida a modificação relacionada ao RTT.
-
-Essa abordagem permite preservar o algoritmo original e comparar diretamente:
+A organização principal do projeto é:
 
 ```text
-CUBIC original
-       VS
-CUBIC modificado
+TCP_CUBIC-PerfomanceProposal/
+├── ns3/
+│   └── ns-3-dev-git/              # Código-fonte e ambiente de simulação ns-3
+│       ├── src/internet/          # Implementações dos algoritmos TCP
+│       └── examples/tcp/          # Experimento cubic-experiment
+├── scripts/
+│   └── cubic/
+│       ├── analyze_results.py
+│       ├── consolidate_results.py
+│       ├── analyze_robustness_experiments.py
+│       └── ...                    # Scripts de execução e análise
+├── results/
+│   ├── Cubic/                     # Resultados dos experimentos iniciais
+│   ├── CubicRtt/
+│   ├── Bbr/
+│   ├── consolidated/              # Consolidação dos experimentos iniciais
+│   └── robustness_experiments/
+│       └── consolidated/          # Consolidação da campanha de robustez
+└── README.md
 ```
 
-sem que alterações na implementação original prejudiquem o baseline experimental.
+A árvore acima destaca os diretórios centrais do projeto; arquivos auxiliares e subdiretórios de resultados podem variar conforme as campanhas executadas.
 
----
+## Execução de uma simulação
 
-# 7. Papel do tcp-variants-comparison.cc
+O experimento utilizado é o `cubic-experiment`, localizado em `examples/tcp/` dentro do ns-3.
 
-O arquivo:
-
-```text
-tcp-variants-comparison.cc
-```
-
-será utilizado principalmente para **configurar e executar os experimentos**.
-
-Ele será responsável por definir características como:
-
-* protocolo TCP utilizado;
-* largura de banda;
-* atraso;
-* número de fluxos;
-* duração da simulação;
-* taxa de erro;
-* tamanho da MTU;
-* mecanismo de recuperação;
-* fila;
-* tracing;
-* Flow Monitor;
-* nome dos arquivos de saída.
-
-A lógica principal do algoritmo CUBIC-RTT, entretanto, ficará na implementação do próprio protocolo.
-
-Conceitualmente:
-
-```text
-tcp-variants-comparison.cc
-            │
-            │ seleciona protocolo
-            ▼
-      TcpCubicRTT
-            │
-            │ executa algoritmo
-            ▼
-      Controle TCP modificado
-```
-
-Assim, o arquivo de comparação funciona como o **ambiente experimental**, enquanto a implementação do CUBIC-RTT contém a contribuição proposta.
-
----
-
-# 8. Metodologia experimental
-
-Os experimentos serão organizados a partir da variação do RTT.
-
-A ideia é executar os mesmos cenários para diferentes valores de RTT, permitindo observar como o aumento do atraso influencia o comportamento dos protocolos.
-
-Para cada cenário serão executados, inicialmente:
-
-```text
-CUBIC
-CUBIC-RTT
-BBR
-```
-
-A comparação será realizada mantendo as demais condições da rede equivalentes.
-
-Exemplo conceitual:
-
-```text
-RTT X
-├── CUBIC
-├── CUBIC-RTT
-└── BBR
-
-RTT Y
-├── CUBIC
-├── CUBIC-RTT
-└── BBR
-
-RTT Z
-├── CUBIC
-├── CUBIC-RTT
-└── BBR
-```
-
-Os valores exatos de RTT e os demais parâmetros do cenário serão definidos na etapa de planejamento experimental.
-
----
-
-# 9. Métricas de avaliação
-
-Nem todos os arquivos gerados pelo ns-3 terão a mesma importância para a análise.
-
-As principais métricas previstas são:
-
-## 9.1 Congestion Window — `cwnd.data`
-
-A janela de congestionamento será uma das principais métricas do projeto.
-
-Ela permitirá observar como cada algoritmo reage às condições da rede e como o CUBIC-RTT se comporta em relação ao CUBIC original.
-
-Será possível analisar, por exemplo:
-
-* crescimento da janela;
-* redução após eventos de congestionamento;
-* estabilidade;
-* comportamento durante diferentes RTTs.
-
----
-
-## 9.2 RTT — `rtt.data`
-
-O arquivo de RTT será utilizado para acompanhar o comportamento do atraso observado durante a transmissão.
-
-Essa métrica é especialmente importante porque o RTT é a principal variável investigada no projeto.
-
----
-
-## 9.3 In-flight — `inflight.data`
-
-O número de dados em trânsito será utilizado como métrica complementar.
-
-Essa informação pode ajudar a compreender como CUBIC, CUBIC-RTT e BBR utilizam a capacidade da rede.
-
----
-
-## 9.4 Throughput
-
-O throughput será uma das principais métricas de desempenho.
-
-Ele permitirá responder perguntas como:
-
-> O CUBIC-RTT consegue transmitir mais dados por segundo que o CUBIC original em determinados valores de RTT?
-
-O throughput poderá ser obtido a partir dos dados coletados pelo Flow Monitor.
-
----
-
-## 9.5 Perda de pacotes
-
-A quantidade de pacotes perdidos poderá ser utilizada para avaliar o comportamento dos protocolos em cenários com perdas.
-
-Essa métrica também permitirá investigar se uma eventual melhoria de throughput ocorre às custas de um aumento significativo de perdas.
-
----
-
-## 9.6 Atraso
-
-Os dados do Flow Monitor poderão ser utilizados para complementar a análise do comportamento dos protocolos em relação ao atraso.
-
----
-
-# 10. Arquivos `.data`
-
-O ns-3 pode gerar diversos arquivos durante uma execução com tracing habilitado.
-
-Entre eles:
-
-```text
-cwnd.data
-rtt.data
-inflight.data
-ssth.data
-rto.data
-next-tx.data
-next-rx.data
-```
-
-Os arquivos mais importantes inicialmente serão:
-
-```text
-cwnd.data
-rtt.data
-inflight.data
-```
-
-Além dos dados provenientes do:
-
-```text
-.flowmonitor
-```
-
-Os demais arquivos poderão ser utilizados como informações auxiliares caso sejam relevantes para alguma análise específica.
-
-### Prioridade inicial
-
-| Arquivo         | Prioridade |
-| --------------- | ---------- |
-| `cwnd.data`     | Alta       |
-| `rtt.data`      | Alta       |
-| `inflight.data` | Alta       |
-| `.flowmonitor`  | Alta       |
-| `ssth.data`     | Média      |
-| `rto.data`      | Média      |
-| `next-tx.data`  | Baixa      |
-| `next-rx.data`  | Baixa      |
-
-Essa seleção poderá ser ajustada após os primeiros experimentos.
-
----
-
-# 11. Organização dos resultados
-
-Os resultados das simulações serão armazenados em arquivos gerados pelo ns-3.
-
-Para evitar sobrescrita dos resultados, cada protocolo poderá utilizar um prefixo diferente.
-
-Exemplo:
+Exemplo de execução de uma simulação com TCP CUBIC:
 
 ```bash
-./ns3 run "tcp-variants-comparison --transport_prot=TcpCubic --tracing=true --flow_monitor=true --prefix_name=Cubic"
+cd ns3/ns-3-dev-git
+
+./ns3 run "cubic-experiment --transport_prot=TcpCubic --num_flows=4 --bandwidth=2Mbps --delay=10ms --access_bandwidth=10Mbps --access_delay=45ms --duration=100 --tracing=true --flow_monitor=true --results_dir=../../results/cubic/cenario01"
 ```
+
+O diretório indicado em `--results_dir` deve existir antes da execução:
 
 ```bash
-./ns3 run "tcp-variants-comparison --transport_prot=TcpBbr --tracing=true --flow_monitor=true --prefix_name=Bbr"
+mkdir -p ../../results/cubic/cenario01
 ```
 
-Posteriormente, o CUBIC modificado poderá utilizar, por exemplo:
+Para executar outra variante, altere o parâmetro `--transport_prot` conforme o identificador registrado no ns-3. Os parâmetros Alpha e Gamma da variante CUBIC-RTT também podem ser configurados no experimento.
 
-```text
-CubicRTT
-```
+## Automação e análise
 
-A organização deverá permitir identificar facilmente:
+O projeto possui scripts em `scripts/cubic/` para automatizar campanhas, processar traces e consolidar os dados do FlowMonitor.
 
-```text
-protocolo
-RTT
-cenário
-execução
-```
+As etapas gerais são:
 
----
+1. configurar a matriz experimental;
+2. executar as simulações no ns-3;
+3. armazenar os arquivos brutos de cada execução;
+4. extrair as métricas do FlowMonitor;
+5. processar os traces TCP por fluxo;
+6. consolidar os resultados em CSV;
+7. validar a consistência dos dados;
+8. gerar análises e gráficos para comparação.
 
-# 12. Análise utilizando Python
+Os principais arquivos de análise incluem:
 
-O ns-3 será responsável pela **simulação e geração dos dados**.
+- `analyze_results.py`: leitura e extração de dados dos resultados;
+- `consolidate_results.py`: consolidação dos experimentos iniciais;
+- `analyze_robustness_experiments.py`: análise da campanha de robustez.
 
-O Python será utilizado posteriormente para o processamento e visualização dos resultados.
+Os CSVs consolidados incluem um resumo por simulação e métricas individualizadas por fluxo. Os relatórios de validação registram a quantidade de simulações e fluxos processados e eventuais inconsistências estruturais.
 
-A arquitetura será:
+## Resultados e organização dos dados
 
-```text
-              ns-3 / C++
-                   │
-                   ▼
-             Simulações
-                   │
-                   ▼
-          Arquivos de dados
-                   │
-       ┌───────────┴───────────┐
-       │                       │
-    *.data                *.flowmonitor
-       │                       │
-       └───────────┬───────────┘
-                   ▼
-                 Python
-                   │
-          ┌────────┼────────┐
-          ▼        ▼        ▼
-       Gráficos  Métricas  Tabelas
-```
+Os dados brutos são mantidos separados dos arquivos consolidados. Essa separação facilita a reprodução das análises sem precisar executar novamente as simulações.
 
-O Python poderá ser utilizado para:
+| Diretório | Conteúdo |
+| --- | --- |
+| `results/consolidated/` | Consolidação dos experimentos iniciais (45 simulações) |
+| `results/robustness_experiments/` | Dados brutos da campanha de robustez |
+| `results/robustness_experiments/consolidated/` | Consolidação da campanha de robustez (675 simulações) |
 
-* leitura dos arquivos `.data`;
-* processamento dos resultados;
-* cálculo de métricas;
-* geração de gráficos;
-* comparação entre protocolos;
-* organização dos resultados;
-* análise estatística posteriormente, se necessário.
+Os resultados consolidados devem sempre ser interpretados considerando a versão da instrumentação e dos scripts utilizada para produzi-los. Em particular, alterações recentes nos callbacks dos traces exigem novas execuções para que as métricas internas de CWND, RTT, InFlight e SSThresh representem a instrumentação corrigida.
 
----
+**Não há, neste README, uma conclusão de superioridade do CUBIC-RTT.** Essa conclusão depende da análise comparativa e estatística dos resultados experimentais.
 
-# 13. Automação dos experimentos
+## Estado atual do projeto
 
-Após a definição completa da metodologia, será avaliada a criação de uma forma de automatizar a execução das simulações.
+### Implementado e executado
 
-A ideia é evitar a execução manual de cada cenário.
+- [x] Ambiente ns-3 integrado ao projeto.
+- [x] Implementação experimental `TcpCubicRtt`.
+- [x] Experimento próprio `cubic-experiment`.
+- [x] Topologia com dois gateways e enlace de gargalo.
+- [x] Execução de CUBIC, CUBIC-RTT e BBR.
+- [x] Coleta de métricas do FlowMonitor.
+- [x] Instrumentação de CWND, RTT, BytesInFlight e SSThresh.
+- [x] Automação e execução da campanha de robustez de 675 simulações.
+- [x] Consolidação dos resultados da campanha de robustez.
+- [x] Validação estrutural dos CSVs e consistência de métricas agregadas e por fluxo.
+- [x] Correção dos callbacks para que cada trace registre sua própria métrica, sem escrita cruzada entre CWND e SSThresh.
+- [x] Ajustes no processamento de BytesInFlight e do valor sentinela de SSThresh.
+- [x] Compilação e execução de uma simulação curta para verificar a geração dos traces após as alterações.
 
-Em vez de executar individualmente:
+### Em andamento
 
-```text
-CUBIC + RTT A
-CUBIC + RTT B
-CUBIC + RTT C
+- [ ] Executar uma nova bateria com a instrumentação corrigida.
+- [ ] Consolidar novamente os traces gerados pela instrumentação atualizada.
+- [ ] Comparar os resultados de desempenho e comportamento interno dos algoritmos.
+- [ ] Produzir gráficos e tabelas finais.
+- [ ] Realizar a análise estatística e discutir limitações dos experimentos.
+- [ ] Documentar a formulação completa e a justificativa dos parâmetros da proposta CUBIC-RTT.
 
-CUBIC-RTT + RTT A
-CUBIC-RTT + RTT B
-CUBIC-RTT + RTT C
+## Tecnologias
 
-BBR + RTT A
-BBR + RTT B
-BBR + RTT C
-```
+- **C++:** implementação dos algoritmos e dos experimentos.
+- **ns-3:** simulador de redes utilizado nos experimentos.
+- **Python:** automação, processamento e análise dos resultados.
+- **TCP CUBIC / CUBIC-RTT / BBR:** algoritmos comparados.
+- **FlowMonitor:** coleta de métricas dos fluxos.
 
-um programa/controlador poderá executar automaticamente todas as combinações definidas.
+## Escopo e reprodutibilidade
 
-A automação será implementada somente após a definição da matriz experimental.
+Este repositório reúne o código da proposta, a configuração dos experimentos e os scripts utilizados para processar os resultados. Para reproduzir uma campanha, é importante registrar:
 
----
+- versão/commit do ns-3 utilizado;
+- versão do código dos algoritmos;
+- parâmetros de cada cenário;
+- parâmetros Alpha e Gamma;
+- duração e quantidade de repetições;
+- scripts utilizados na execução e consolidação.
 
-# 14. Fluxo completo do projeto
-
-O fluxo planejado é:
-
-```text
-              Definição dos cenários
-                       │
-                       ▼
-              Configuração do ns-3
-                       │
-                       ▼
-             Execução das simulações
-                       │
-                       ▼
-               Geração dos dados
-                       │
-              ┌────────┴────────┐
-              ▼                 ▼
-           *.data          *.flowmonitor
-              │                 │
-              └────────┬────────┘
-                       ▼
-                    Python
-                       │
-                       ▼
-              Processamento
-                       │
-                       ▼
-               Gráficos/tabelas
-                       │
-                       ▼
-                  Comparação
-                       │
-        ┌──────────────┼──────────────┐
-        ▼              ▼              ▼
-      CUBIC         CUBIC-RTT         BBR
-        │              │              │
-        └──────────────┼──────────────┘
-                       ▼
-                 Análise final
-```
+Como os resultados dependem da versão do código e da instrumentação, novas campanhas devem ser armazenadas em diretórios próprios, sem sobrescrever os dados de campanhas anteriores.
 
 ---
 
-# 15. Comparação final
+## Autor
 
-A principal comparação proposta será:
+**Thales Gomes Batista**
 
-### CUBIC original × CUBIC-RTT
-
-Objetivo:
-
-> Verificar se a utilização da mecânica baseada em RTT proporciona melhoria em relação ao comportamento original do CUBIC.
-
-### CUBIC × BBR
-
-Objetivo:
-
-> Utilizar o BBR como referência para avaliar o desempenho do CUBIC em diferentes condições de RTT.
-
-### CUBIC-RTT × BBR
-
-Objetivo:
-
-> Verificar se a proposta modificada consegue apresentar desempenho competitivo em relação ao BBR.
-
----
-
-# 16. Questão central da pesquisa
-
-A investigação pode ser resumida pela seguinte questão:
-
-> **Como a utilização de informações de RTT na tomada de decisões do TCP CUBIC pode influenciar seu desempenho em diferentes condições de rede?**
-
-A partir dela, os experimentos buscarão avaliar se o CUBIC-RTT apresenta melhorias em métricas como:
-
-* throughput;
-* RTT;
-* congestion window;
-* dados em trânsito;
-* perdas de pacotes;
-* atraso.
-
----
-
-# 17. Estado atual do projeto
-
-### Concluído
-
-* [x] Ambiente ns-3 configurado.
-* [x] Execução do `tcp-variants-comparison` funcionando.
-* [x] Execução do TCP CUBIC.
-* [x] Execução do TCP BBR.
-* [x] Habilitação de tracing.
-* [x] Habilitação do Flow Monitor.
-* [x] Geração dos arquivos `.data`.
-* [x] Identificação das principais métricas disponíveis.
-* [x] Definição inicial da utilização do Python para análise.
-
-### Em planejamento
-
-* [ ] Definir exatamente os valores de RTT.
-* [ ] Definir todos os parâmetros dos cenários.
-* [ ] Definir a matriz completa de experimentos.
-* [ ] Definir as métricas finais que serão utilizadas.
-* [ ] Definir exatamente a mecânica baseada em RTT.
-* [ ] Criar o CUBIC-RTT a partir do CUBIC original.
-* [ ] Implementar a modificação proposta.
-* [ ] Validar o CUBIC-RTT contra o CUBIC original.
-* [ ] Automatizar as simulações.
-* [ ] Desenvolver os scripts de análise em Python.
-* [ ] Gerar gráficos e tabelas.
-* [ ] Analisar os resultados.
-
----
-
-# 18. Princípio da implementação
-
-A implementação seguirá inicialmente uma abordagem conservadora:
-
-1. Preservar o CUBIC original.
-2. Criar uma cópia independente.
-3. Validar que a cópia apresenta comportamento equivalente ao CUBIC original.
-4. Implementar a mecânica baseada em RTT.
-5. Executar novamente os mesmos experimentos.
-6. Comparar CUBIC, CUBIC-RTT e BBR.
-7. Avaliar quantitativamente os resultados.
-
-Dessa forma, qualquer diferença observada entre o CUBIC original e o CUBIC-RTT poderá ser associada à alteração proposta, mantendo um **baseline experimental claro**.
-
----
-
-## 19. Tecnologias
-
-* **C++** — implementação e execução das simulações no ns-3.
-* **ns-3** — ambiente de simulação de redes.
-* **TCP CUBIC** — algoritmo de congestionamento utilizado como baseline.
-* **TCP BBR** — algoritmo utilizado como referência.
-* **Python** — processamento, análise e visualização dos resultados.
-* **Flow Monitor** — coleta de métricas dos fluxos.
-
----
-
-## 20. Próximo passo
-
-Antes da implementação do CUBIC-RTT e da automação, será definida a **matriz experimental completa**, incluindo:
-
-* valores de RTT;
-* largura de banda;
-* atraso dos enlaces;
-* número de fluxos;
-* duração das simulações;
-* presença ou ausência de perdas;
-* tipo de fila;
-* métricas coletadas;
-* quantidade de repetições de cada experimento.
-
-Somente após essa definição será iniciada a implementação definitiva da proposta.
+Projeto acadêmico desenvolvido no contexto do curso de Ciência da Computação — Universidade Federal de Juiz de Fora (UFJF).
