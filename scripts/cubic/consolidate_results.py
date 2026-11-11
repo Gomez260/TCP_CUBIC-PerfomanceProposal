@@ -23,6 +23,7 @@ SOURCE_TO_TCP_FLOW = {
 }
 
 
+
 def metric_stats(results_dir, flow_index, metric, scale=1):
     filename = os.path.join(
         results_dir,
@@ -34,11 +35,31 @@ def metric_stats(results_dir, flow_index, metric, scale=1):
 
     data = analyzer.analyze_data_file(filename)
 
-    values = [
-        value * scale
-        for _, value in data
-        if value > 0
-    ]
+    # Detecta o sentinel antes de filtrar os valores.
+    uint32_max = any(value >= UINT32_MAX for _, value in data)
+    sentinel_samples = sum(
+        1 for _, value in data if value >= UINT32_MAX
+    )
+
+    if metric == "inflight":
+        # Zero é um estado válido de BytesInFlight.
+        values = [value * scale for _, value in data]
+
+    elif metric == "ssth":
+        # Ignora zero, como antes, e remove o sentinel UINT32_MAX.
+        values = [
+            value * scale
+            for _, value in data
+            if 0 < value < UINT32_MAX
+        ]
+
+    else:
+        # Mantém o comportamento anterior para CWND e RTT.
+        values = [
+            value * scale
+            for _, value in data
+            if value > 0
+        ]
 
     if not values:
         return None, filename
@@ -48,7 +69,8 @@ def metric_stats(results_dir, flow_index, metric, scale=1):
         "max": max(values),
         "avg": sum(values) / len(values),
         "samples": len(values),
-        "uint32_max": any(value >= UINT32_MAX for value in values)
+        "uint32_max": uint32_max,
+        "sentinel_samples": sentinel_samples
     }, filename
 
 
@@ -255,11 +277,19 @@ def main():
                         "ssth_max_bytes": ssth.get("max"),
                         "ssth_avg_bytes": ssth.get("avg"),
                         "ssth_samples": ssth.get("samples"),
-                        "ssth_uint32_max": ssth.get("uint32_max")
+                        "ssth_uint32_max": ssth.get("uint32_max"),
+                        "ssth_sentinel_samples": ssth.get("sentinel_samples", 0)
                     })
 
                 simulation["cwnd_uint32_max_flows"] = len(cwnd_anomaly_flows)
                 simulation["ssth_uint32_max_flows"] = len(ssth_max_flows)
+                simulation["ssth_sentinel_samples"] = sum(
+                row.get("ssth_sentinel_samples", 0)
+                for row in flow_rows
+                if row["algorithm"] == algorithm
+                and row["delay_ms"] == delay
+                 and row["repetition"] == run
+                 )
 
                 simulation_rows.append(simulation)
 
