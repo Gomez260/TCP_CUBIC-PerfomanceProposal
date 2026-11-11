@@ -1,246 +1,480 @@
-# TCP CUBIC-RTT — Avaliação de um mecanismo de controle de congestionamento baseado em RTT
+# TCP CUBIC-RTT — ns-3 Experiment Environment
 
-> Projeto de pesquisa desenvolvido como Trabalho de Conclusão de Curso (TCC), utilizando o **ns-3** para investigar o comportamento do TCP CUBIC e avaliar uma proposta de modificação que incorpora informações de Round-Trip Time (RTT) ao controle de congestionamento.
+Repositório de implementação e experimentação de uma variante do TCP CUBIC com adaptação baseada em RTT. Este README documenta **como o código está organizado, como uma simulação é montada, quais dados são gerados e como os scripts processam esses dados**.
 
-## Visão geral
+O documento descreve o funcionamento do repositório. A fundamentação teórica, a discussão dos resultados e as conclusões da pesquisa pertencem ao texto do TCC, não a esta documentação.
 
-O TCP CUBIC é um algoritmo de controle de congestionamento amplamente utilizado. Este projeto investiga como seu comportamento pode ser influenciado pela utilização explícita de informações de RTT.
+---
 
-A proposta consiste em desenvolver e avaliar uma variante experimental denominada **TCP CUBIC-RTT**, mantendo o TCP CUBIC original como baseline. O TCP BBR também é utilizado como referência comparativa.
+## 1. Mapa rápido do projeto
 
-O estudo utiliza simulações no **ns-3** para comparar os algoritmos sob diferentes condições de rede, observando tanto métricas de desempenho fim a fim quanto variáveis internas do controle de congestionamento.
+O projeto possui três partes principais:
 
-**Algoritmos avaliados:**
+1. **Simulador (C++ / ns-3):** implementa o algoritmo TCP CUBIC-RTT e executa os cenários de rede.
+2. **Automação (Shell):** percorre as combinações de cenários, algoritmos, parâmetros e repetições.
+3. **Processamento (Python):** lê os arquivos gerados pelo ns-3, associa métricas aos fluxos TCP e produz CSVs e relatórios de validação.
 
-- **TCP CUBIC:** implementação original, utilizada como baseline.
-- **TCP CUBIC-RTT:** variante experimental derivada do CUBIC, com mecanismo de ajuste baseado em RTT.
-- **TCP BBR:** algoritmo de referência para comparação.
+Fluxo de execução:
 
-O objetivo não é pressupor que a modificação seja superior, mas verificar experimentalmente em quais condições — se houver — ela apresenta benefícios e quais possíveis custos estão associados.
+```text
+run_robustness_experiments.sh
+             |
+             v
+       ns-3 / C++
+             |
+             +----> FlowMonitor (.flowmonitor)
+             |
+             +----> TCP traces (.data)
+             |
+             +----> logs de execução
+                         |
+                         v
+             analyze_robustness_experiments.py
+                         |
+                         v
+                consolidate_results.py
+                         |
+              +----------+----------+
+              |                     |
+              v                     v
+       resumo_simulacoes.csv  metricas_fluxos.csv
+                                    |
+                                    v
+                         relatorio_validacao.txt
+```
 
-## Pergunta de pesquisa
+## 2. Organização do repositório
 
-**Como a utilização de informações de RTT nas decisões do TCP CUBIC influencia seu desempenho em diferentes condições de rede?**
+```text
+TCP_CUBIC-PerfomanceProposal/
+|
+|-- ns3/
+|   \-- ns-3-dev-git/                 # Submodule com o ns-3 modificado
+|       |-- src/internet/model/
+|       |   |-- tcp-cubic-rtt.cc
+|       |   \-- tcp-cubic-rtt.h
+|       \-- examples/tcp/
+|           \-- cubic-experiment.cc   # Topologia, aplicações e instrumentação
+|
+|-- scripts/
+|   \-- cubic/
+|       |-- analyze_results.py
+|       |-- consolidate_results.py
+|       |-- analyze_parameter_experiments.py
+|       |-- analyze_robustness_experiments.py
+|       \-- run_scenarios.sh
+|
+|-- run_parameter_experiments.sh
+|-- run_robustness_experiments.sh
+|-- robustness_execution.log
+|-- results/
+|   |-- Cubic/
+|   |-- Bbr/
+|   |-- CubicRtt/
+|   |-- consolidated/
+|   |-- parameter_experiments/
+|   \-- robustness_experiments/
+|       |-- <scenario>/
+|       |-- consolidated/
+|       \-- ...
+|
+|-- .gitmodules
+\-- README.md
+```
 
-A investigação considera aspectos como utilização da capacidade do enlace, estabilidade, justiça entre fluxos, atraso e perdas de pacotes.
+O diretório `ns3/ns-3-dev-git` é um **submodule Git**. O repositório principal registra um commit específico do repositório do ns-3; por isso, clonar apenas o repositório principal sem inicializar os submodules não baixa o código do simulador.
 
-## Arquitetura experimental
+Os diretórios de resultados são organizados por campanha. Os arquivos brutos de cada execução ficam separados dos CSVs consolidados.
 
-As simulações são executadas no ns-3, com um cenário de gargalo entre dois gateways. Os fluxos TCP atravessam os enlaces de acesso e compartilham o enlace de gargalo.
+## 3. Código de simulação
 
-A topologia permite variar parâmetros como:
+### 3.1 `cubic-experiment.cc`
 
-- largura de banda do gargalo;
-- atraso do enlace de gargalo;
-- atraso dos enlaces de acesso;
-- quantidade de fluxos concorrentes;
-- algoritmo TCP utilizado;
-- parâmetros da proposta CUBIC-RTT;
-- número de repetições.
+Arquivo:
 
-Os experimentos utilizam condições equivalentes entre algoritmos dentro de cada configuração, de modo a permitir comparações controladas.
+`ns3/ns-3-dev-git/examples/tcp/cubic-experiment.cc`
 
-### Matriz de experimentos
+Esse é o programa principal de cada execução. Ele recebe os parâmetros pela linha de comando, constrói a topologia, instala a pilha TCP, cria os fluxos de tráfego e, quando habilitados, registra traces e dados do FlowMonitor.
 
-A campanha de robustez já executada contém **675 simulações**, organizadas em:
+Entre os parâmetros configuráveis estão:
 
-- 3 cenários de rede;
-- 15 configurações de algoritmo/parâmetros por cenário;
-- 5 repetições por configuração.
+| Parâmetro | Função |
+| --- | --- |
+| `transport_prot` | Variante TCP utilizada (`TcpCubic`, `TcpBbr`, `TcpCubicRtt`) |
+| `num_flows` | Quantidade de fluxos TCP concorrentes |
+| `bandwidth` | Largura de banda do enlace de gargalo |
+| `delay` | Atraso do enlace de gargalo |
+| `access_bandwidth` | Largura de banda dos enlaces de acesso |
+| `access_delay` | Atraso de acesso comum a todos os fluxos |
+| `access_delays` | Atrasos individuais de acesso, quando especificados |
+| `duration` | Duração da simulação |
+| `run` | Índice da repetição, usado para configurar a execução aleatória |
+| `tracing` | Habilita os traces TCP |
+| `flow_monitor` | Habilita a saída do FlowMonitor |
+| `results_dir` | Diretório dos arquivos da execução |
+| `queue_disc_type` | Tipo de disciplina de fila |
+| `sack` | Habilita ou desabilita SACK |
+| `recovery` | Algoritmo de recuperação TCP |
 
-Os cenários incluem variações na largura de banda do gargalo, no número de fluxos e no atraso dos enlaces de acesso. Os atrasos do gargalo também são variados.
+Os valores padrão estão definidos no próprio arquivo C++. Os scripts de campanha passam explicitamente os parâmetros que variam entre as execuções.
 
-| Cenário | Largura de banda do gargalo | Fluxos | Atraso de acesso |
+### 3.2 Topologia
+
+O experimento constrói uma topologia com dois gateways conectados por um enlace de gargalo. Os nós de origem se conectam ao primeiro gateway por enlaces de acesso; os destinos se conectam ao segundo gateway por seus próprios enlaces de acesso.
+
+Representação lógica:
+
+```text
+Origens / clientes                 Destinos / servidores
+       |                                     ^
+       v                                     |
+  Gateway A  ===== enlace de gargalo ===== Gateway B
+                 banda e atraso variáveis
+```
+
+Cada fluxo possui uma origem e um destino próprios. A quantidade de fluxos é configurada por `num_flows`. Os enlaces de acesso e o enlace de gargalo podem ter parâmetros diferentes.
+
+O FlowMonitor coleta estatísticas dos fluxos IP. Os traces TCP são conectados aos sockets TCP dos nós de origem, permitindo observar o estado de cada conexão transmissora.
+
+### 3.3 Implementação `TcpCubicRtt`
+
+Arquivos:
+
+- `ns3/ns-3-dev-git/src/internet/model/tcp-cubic-rtt.h`
+- `ns3/ns-3-dev-git/src/internet/model/tcp-cubic-rtt.cc`
+
+A classe `TcpCubicRtt` é uma implementação independente de `TcpCongestionOps`, registrada no sistema de tipos do ns-3 como `ns3::TcpCubicRtt`.
+
+Além dos mecanismos herdados da implementação CUBIC utilizada como base, a variante possui parâmetros próprios para o ajuste adaptativo:
+
+| Atributo | Papel no código |
+| --- | --- |
+| `Alpha` | Parâmetro de controle da adaptação |
+| `Gamma` | Parâmetro de controle da adaptação |
+| `RttReference` | RTT de referência |
+| `BetaMin` / `BetaMax` | Limites do parâmetro Beta adaptativo |
+| `C` | Fator de escala CUBIC |
+
+As funções `CalculateAdaptiveC()` e `CalculateAdaptiveBeta()` concentram os cálculos dos parâmetros adaptativos. A amostragem e atualização de RTT ocorrem nos métodos de operação do algoritmo, como `PktsAcked()`; a evolução da janela é tratada por `IncreaseWindow()`, e a resposta à indicação de congestionamento envolve `GetSsThresh()`.
+
+Os valores efetivos e as expressões matemáticas devem ser consultados no código-fonte versionado do submodule. Para alterar ou estudar a proposta, o ponto de partida é a classe `TcpCubicRtt`, não o programa de topologia.
+
+Os atributos podem ser passados ao ns-3 pela linha de comando, por exemplo:
+
+```bash
+--ns3::TcpCubicRtt::Alpha=0.25
+--ns3::TcpCubicRtt::Gamma=0.05
+```
+
+## 4. Instrumentação: arquivos produzidos por uma simulação
+
+Quando `--tracing=true`, o experimento registra traces associados a cada fluxo. Os arquivos usam o prefixo `CubicExperiment` e o índice do fluxo.
+
+Exemplos:
+
+```text
+CubicExperiment-flow0-cwnd.data
+CubicExperiment-flow0-rtt.data
+CubicExperiment-flow0-inflight.data
+CubicExperiment-flow0-ssth.data
+CubicExperiment-flow0-rto.data
+CubicExperiment-flow0-next-tx.data
+CubicExperiment-flow0-next-rx.data
+```
+
+Os arquivos de trace são séries temporais em texto, normalmente com duas colunas:
+
+```text
+tempo_em_segundos valor
+```
+
+| Trace | Conteúdo | Unidade do valor gravado |
+| --- | --- | --- |
+| `cwnd` | Congestion Window | Bytes |
+| `rtt` | RTT reportado pelo socket | Segundos |
+| `inflight` | BytesInFlight | Bytes |
+| `ssth` | Slow Start Threshold | Bytes |
+| `rto` | Retransmission Timeout | Segundos |
+| `next-tx` | Próximo número de sequência de transmissão | Sequence number |
+| `next-rx` | Próximo número de sequência esperado na recepção | Sequence number |
+
+Os traces de CWND, RTT e SSThresh registram o valor anterior na primeira chamada, associado ao instante inicial, e depois registram os novos valores nos eventos. O trace de BytesInFlight registra as mudanças observadas no atributo. Portanto, os arquivos representam eventos de alteração, não amostras periódicas em intervalos fixos.
+
+A instrumentação usa os caminhos de trace do socket TCP, incluindo:
+
+- `CongestionWindow`
+- `SlowStartThreshold`
+- `RTT`
+- `RTO`
+- `BytesInFlight`
+- `NextTxSequence`
+- `RxBuffer/NextRxSequence`
+
+No cenário implementado, cada nó de origem possui o socket TCP usado pelo respectivo fluxo; o índice do arquivo de trace identifica esse fluxo de origem.
+
+Quando `--flow_monitor=true`, também é produzido:
+
+`CubicExperiment.flowmonitor`
+
+Esse arquivo XML contém estatísticas por fluxo IP, como bytes e pacotes transmitidos/recebidos, perdas, soma dos atrasos, soma dos jitters e tempos do primeiro e último pacote recebido.
+
+## 5. Automação das campanhas
+
+### 5.1 Campanha inicial — 45 simulações
+
+O script `scripts/cubic/run_scenarios.sh` executa a matriz inicial, com:
+
+- 3 variantes: CUBIC, BBR e CUBIC-RTT;
+- 3 atrasos de gargalo: 10, 50 e 100 ms;
+- 5 repetições por combinação;
+- 4 fluxos por simulação;
+- 100 segundos por simulação.
+
+Total: `3 × 3 × 5 = 45` simulações.
+
+Os resultados são organizados por algoritmo, atraso e repetição:
+
+```text
+results/
+|-- Cubic/atraso_<delay>/run_<n>/
+|-- Bbr/atraso_<delay>/run_<n>/
+\-- CubicRtt/atraso_<delay>/run_<n>/
+```
+
+### 5.2 Experimentos de parâmetros — 180 simulações
+
+O script `run_parameter_experiments.sh` executa combinações adicionais de Alpha e Gamma para `TcpCubicRtt`.
+
+A matriz do script contém 12 combinações de parâmetros, 3 atrasos e 5 repetições:
+
+`12 × 3 × 5 = 180` simulações.
+
+Os resultados são gravados em:
+
+`results/parameter_experiments/<configuração>/<delay>ms/run_<n>/`
+
+O script `scripts/cubic/analyze_parameter_experiments.py` processa essa campanha e grava seus arquivos consolidados em:
+
+`results/parameter_experiments/consolidated/`
+
+### 5.3 Campanha de robustez — 675 simulações
+
+O script `run_robustness_experiments.sh` percorre três cenários de rede, quinze configurações de algoritmo/parâmetros, três atrasos e cinco repetições:
+
+`3 × 15 × 3 × 5 = 675` simulações.
+
+Cenários:
+
+| Identificador | Gargalo | Fluxos | Atraso de acesso |
 | --- | ---: | ---: | ---: |
 | `bw1_f4` | 1 Mbps | 4 | 45 ms |
 | `bw2_f8` | 2 Mbps | 8 | 45 ms |
 | `access100` | 2 Mbps | 4 | 100 ms |
 
-Os atrasos do gargalo avaliados são 10 ms, 50 ms e 100 ms. A largura de banda dos enlaces de acesso é de 10 Mbps e a duração configurada para a campanha é de 100 segundos por simulação.
+Os atrasos do gargalo são 10, 50 e 100 ms. A largura de banda de acesso é 10 Mbps e a duração de cada simulação é 100 segundos.
 
-A matriz inclui CUBIC, BBR, uma configuração baseline de CUBIC-RTT e diferentes combinações dos parâmetros Alpha e Gamma da proposta. Os valores específicos são definidos nos scripts da campanha.
+As quinze configurações são:
 
-> A campanha de 675 simulações é distinta dos experimentos iniciais de 45 simulações. Seus resultados são armazenados em diretórios separados para evitar mistura entre conjuntos experimentais.
+- CUBIC;
+- BBR;
+- CUBIC-RTT baseline (`Alpha=0.25`, `Gamma=0.05`);
+- doze combinações adicionais de Alpha e Gamma, definidas no array `CONFIGS` do script.
 
-## Métricas coletadas
-
-A avaliação combina métricas do **FlowMonitor** com traces internos dos sockets TCP.
-
-### Métricas principais — FlowMonitor
-
-| Métrica | O que permite avaliar |
-| --- | --- |
-| Throughput | Taxa efetiva de dados recebidos |
-| Taxa de perda | Proporção de pacotes transmitidos que foram perdidos |
-| Atraso médio | Tempo médio de entrega dos pacotes |
-| Jitter médio | Variação do atraso entre pacotes |
-| Jain's Fairness Index | Distribuição da vazão entre os fluxos concorrentes |
-
-Essas métricas são utilizadas para comparar o desempenho fim a fim dos algoritmos.
-
-### Métricas complementares — traces TCP
-
-| Trace | Unidade | Finalidade |
-| --- | --- | --- |
-| CWND (`cwnd.data`) | Bytes | Acompanhar a evolução da janela de congestionamento |
-| RTT (`rtt.data`) | Segundos no arquivo bruto; convertido para ms na análise | Observar a evolução do RTT registrado pelo socket |
-| Bytes in Flight (`inflight.data`) | Bytes | Acompanhar a quantidade de dados em trânsito |
-| Slow Start Threshold (`ssth.data`) | Bytes | Observar as alterações do limiar de slow start |
-
-Os traces ajudam a interpretar **como** os algoritmos se comportam internamente e complementam as métricas de desempenho do FlowMonitor. Eles não substituem as métricas principais.
-
-Valores especiais de inicialização do ns-3, como `UINT32_MAX` em SSThresh, são tratados separadamente na consolidação para não distorcer estatísticas como mínimo, máximo e média. O valor zero de BytesInFlight é preservado, pois representa um estado válido.
-
-## Implementação da proposta
-
-O TCP CUBIC original é mantido separado da implementação modificada. A variante CUBIC-RTT deriva do CUBIC e incorpora a lógica experimental baseada em RTT.
-
-Essa separação permite:
-
-1. preservar o algoritmo original como baseline;
-2. modificar a variante experimental sem alterar o CUBIC de referência;
-3. executar os algoritmos sob a mesma infraestrutura de simulação;
-4. comparar seus resultados sob as mesmas condições de rede.
-
-A implementação do mecanismo proposto está no código do ns-3 integrado ao repositório. Os detalhes matemáticos e os parâmetros do mecanismo devem ser consultados diretamente no código-fonte e na documentação da pesquisa, evitando tratar a hipótese de melhoria como um resultado já comprovado.
-
-## Estrutura do repositório
-
-A organização principal do projeto é:
+A árvore de saída é:
 
 ```text
-TCP_CUBIC-PerfomanceProposal/
-├── ns3/
-│   └── ns-3-dev-git/              # Código-fonte e ambiente de simulação ns-3
-│       ├── src/internet/          # Implementações dos algoritmos TCP
-│       └── examples/tcp/          # Experimento cubic-experiment
-├── scripts/
-│   └── cubic/
-│       ├── analyze_results.py
-│       ├── consolidate_results.py
-│       ├── analyze_robustness_experiments.py
-│       └── ...                    # Scripts de execução e análise
-├── results/
-│   ├── Cubic/                     # Resultados dos experimentos iniciais
-│   ├── CubicRtt/
-│   ├── Bbr/
-│   ├── consolidated/              # Consolidação dos experimentos iniciais
-│   └── robustness_experiments/
-│       └── consolidated/          # Consolidação da campanha de robustez
-└── README.md
+results/robustness_experiments/
+|-- bw1_f4/
+|   \-- <configuração>/<delay>ms/run_<n>/
+|-- bw2_f8/
+|   \-- <configuração>/<delay>ms/run_<n>/
+|-- access100/
+|   \-- <configuração>/<delay>ms/run_<n>/
+\-- consolidated/
 ```
 
-A árvore acima destaca os diretórios centrais do projeto; arquivos auxiliares e subdiretórios de resultados podem variar conforme as campanhas executadas.
+O script cria um arquivo `execution.log` em cada diretório de execução. Quando a simulação termina com sucesso e o arquivo FlowMonitor existe, cria também um marcador `DONE`. Ao ser executado novamente, pula uma execução que já possui `DONE` e FlowMonitor não vazio; isso permite retomar uma campanha sem repetir automaticamente os diretórios já concluídos.
 
-## Execução de uma simulação
+O log geral da campanha é `robustness_execution.log`, na raiz do repositório.
 
-O experimento utilizado é o `cubic-experiment`, localizado em `examples/tcp/` dentro do ns-3.
+## 6. Processamento dos dados
 
-Exemplo de execução de uma simulação com TCP CUBIC:
+### 6.1 `analyze_results.py`
+
+Esse módulo contém funções reutilizadas pelos demais scripts:
+
+- leitura do XML do FlowMonitor;
+- identificação dos fluxos TCP de dados;
+- cálculo das métricas por fluxo;
+- leitura dos arquivos `.data`;
+- impressão de um resumo de uma execução individual.
+
+O parser seleciona os fluxos de dados pelo classificador IPv4 e pela porta de destino configurada para o servidor. Os fluxos de retorno/ACK não são tratados como fluxos de dados da aplicação.
+
+Para uma análise pontual, a interface do script é:
+
+```bash
+python3 scripts/cubic/analyze_results.py <algoritmo> <atraso_ms> <repetição>
+```
+
+Exemplo:
+
+```bash
+python3 scripts/cubic/analyze_results.py Cubic 10 1
+```
+
+### 6.2 `consolidate_results.py`
+
+Esse script percorre a campanha inicial em `results/Cubic`, `results/Bbr` e `results/CubicRtt`. Para cada execução, lê o XML do FlowMonitor e os traces TCP associados aos fluxos.
+
+Gera:
+
+- `results/consolidated/resumo_simulacoes.csv`: uma linha por simulação;
+- `results/consolidated/metricas_fluxos.csv`: uma linha por fluxo;
+- `results/consolidated/relatorio_validacao.txt`: contagens esperadas/encontradas e ocorrências de validação.
+
+**Atenção:** executar esse script reescreve os arquivos dentro de `results/consolidated/`. Ele não consolida a campanha de robustez.
+
+### 6.3 `analyze_robustness_experiments.py`
+
+Esse script percorre a estrutura da campanha de robustez, utiliza as funções de parsing e cálculo do módulo `consolidate_results.py`, e grava os resultados em:
+
+`results/robustness_experiments/consolidated/`
+
+Os arquivos gerados são:
+
+- `resumo_simulacoes.csv`;
+- `metricas_fluxos.csv`;
+- `relatorio_validacao.txt`.
+
+**Atenção:** essa consolidação é independente de `results/consolidated/`. As duas campanhas não devem ser misturadas nem sobrescritas umas pelas outras.
+
+### 6.4 Tratamento dos traces na consolidação
+
+O consolidator converte o RTT de segundos para milissegundos ao gerar as colunas de RTT dos CSVs. CWND, BytesInFlight e SSThresh permanecem em bytes.
+
+O tratamento dos valores é específico por métrica:
+
+- **CWND e RTT:** valores não positivos são desconsiderados no cálculo das estatísticas;
+- **BytesInFlight:** zero é mantido, pois representa um estado válido sem dados em trânsito;
+- **SSThresh:** zero e o valor sentinela `UINT32_MAX` são removidos das estatísticas numéricas; a ocorrência do sentinela é contabilizada separadamente.
+
+Os arquivos brutos `.data` são mantidos como origem da informação. Os CSVs são produtos derivados e podem ser recriados a partir dos arquivos de cada campanha.
+
+## 7. Métricas e campos consolidados
+
+### 7.1 FlowMonitor
+
+As métricas de rede são calculadas a partir dos contadores e tempos presentes no XML:
+
+| Métrica | Como é obtida |
+| --- | --- |
+| TX/RX bytes | Contadores de bytes transmitidos e recebidos |
+| TX/RX packets | Contadores de pacotes transmitidos e recebidos |
+| Lost packets | Contador de pacotes perdidos reportado pelo FlowMonitor |
+| Loss rate | `lost_packets / tx_packets × 100` |
+| Throughput por fluxo | Bytes recebidos convertidos em bits, divididos pelo intervalo entre primeiro e último recebimento |
+| Atraso médio | `delaySum / rxPackets` |
+| Jitter médio | `jitterSum / (rxPackets - 1)`, quando há mais de um pacote recebido |
+| Jain fairness | Calculado a partir das vazões dos fluxos incluídos na mesma simulação |
+
+O throughput agregado da simulação usa o intervalo global entre o primeiro recebimento de qualquer fluxo e o último recebimento de qualquer fluxo. Por isso, não é obtido simplesmente somando os throughputs individuais.
+
+### 7.2 Traces TCP
+
+Para cada fluxo, os CSVs incluem estatísticas mínimo, máximo e média para CWND, RTT, BytesInFlight e SSThresh, além da quantidade de amostras disponível para cada métrica.
+
+Os valores são estatísticas dos eventos registrados pelo trace. Como os traces são acionados por mudanças de estado, a média desses eventos não deve ser interpretada automaticamente como média temporal ponderada ao longo de toda a simulação.
+
+## 8. Como preparar o ambiente
+
+Clone o repositório incluindo o submodule:
+
+```bash
+git clone --recurse-submodules https://github.com/Gomez260/TCP_CUBIC-PerfomanceProposal.git
+cd TCP_CUBIC-PerfomanceProposal
+```
+
+Se o repositório já foi clonado sem os submodules:
+
+```bash
+git submodule update --init --recursive
+```
+
+Entre no ns-3 e compile o experimento:
 
 ```bash
 cd ns3/ns-3-dev-git
-
-./ns3 run "cubic-experiment --transport_prot=TcpCubic --num_flows=4 --bandwidth=2Mbps --delay=10ms --access_bandwidth=10Mbps --access_delay=45ms --duration=100 --tracing=true --flow_monitor=true --results_dir=../../results/cubic/cenario01"
+./ns3 build cubic-experiment
 ```
 
-O diretório indicado em `--results_dir` deve existir antes da execução:
+As dependências de compilação são as exigidas pela versão do ns-3 presente no submodule. Consulte a documentação dessa versão do ns-3 para instalar os pacotes necessários no sistema.
+
+## 9. Executar uma simulação manual
+
+A partir de `ns3/ns-3-dev-git`, crie o diretório de saída e execute:
 
 ```bash
-mkdir -p ../../results/cubic/cenario01
+mkdir -p ../../results/manual_test
+
+./ns3 run "cubic-experiment --transport_prot=TcpCubic --num_flows=4 --bandwidth=2Mbps --delay=10ms --access_bandwidth=10Mbps --access_delay=45ms --duration=10 --tracing=true --flow_monitor=true --results_dir=../../results/manual_test --run=1"
 ```
 
-Para executar outra variante, altere o parâmetro `--transport_prot` conforme o identificador registrado no ns-3. Os parâmetros Alpha e Gamma da variante CUBIC-RTT também podem ser configurados no experimento.
+Para executar CUBIC-RTT com parâmetros específicos, altere o protocolo e adicione os atributos:
 
-## Automação e análise
+```bash
+./ns3 run "cubic-experiment --transport_prot=TcpCubicRtt --num_flows=4 --bandwidth=2Mbps --delay=10ms --access_bandwidth=10Mbps --access_delay=45ms --duration=10 --tracing=true --flow_monitor=true --results_dir=../../results/manual_test_rtt --run=1 --ns3::TcpCubicRtt::Alpha=0.25 --ns3::TcpCubicRtt::Gamma=0.05"
+```
 
-O projeto possui scripts em `scripts/cubic/` para automatizar campanhas, processar traces e consolidar os dados do FlowMonitor.
+Para uma campanha completa, utilize os scripts de automação na raiz do repositório em vez de montar manualmente cada comando.
 
-As etapas gerais são:
+## 10. Comandos de processamento
 
-1. configurar a matriz experimental;
-2. executar as simulações no ns-3;
-3. armazenar os arquivos brutos de cada execução;
-4. extrair as métricas do FlowMonitor;
-5. processar os traces TCP por fluxo;
-6. consolidar os resultados em CSV;
-7. validar a consistência dos dados;
-8. gerar análises e gráficos para comparação.
+Na raiz do repositório:
 
-Os principais arquivos de análise incluem:
+```bash
+# Consolidar a campanha inicial (45 execuções)
+python3 scripts/cubic/consolidate_results.py
 
-- `analyze_results.py`: leitura e extração de dados dos resultados;
-- `consolidate_results.py`: consolidação dos experimentos iniciais;
-- `analyze_robustness_experiments.py`: análise da campanha de robustez.
+# Consolidar a campanha de parâmetros Alpha/Gamma
+python3 scripts/cubic/analyze_parameter_experiments.py
 
-Os CSVs consolidados incluem um resumo por simulação e métricas individualizadas por fluxo. Os relatórios de validação registram a quantidade de simulações e fluxos processados e eventuais inconsistências estruturais.
+# Consolidar a campanha de robustez (675 execuções)
+python3 scripts/cubic/analyze_robustness_experiments.py
+```
 
-## Resultados e organização dos dados
+Cada script lê uma estrutura de diretórios específica e escreve em seu próprio diretório de saída. Antes de executar uma consolidação, confira se os arquivos brutos da campanha correspondente estão presentes.
 
-Os dados brutos são mantidos separados dos arquivos consolidados. Essa separação facilita a reprodução das análises sem precisar executar novamente as simulações.
+## 11. Relação entre as campanhas
 
-| Diretório | Conteúdo |
+As campanhas possuem objetivos operacionais e diretórios de entrada/saída distintos:
+
+| Campanha | Execuções planejadas | Script de execução | Script de consolidação | Saída consolidada |
+| --- | ---: | --- | --- | --- |
+| Inicial | 45 | `scripts/cubic/run_scenarios.sh` | `scripts/cubic/consolidate_results.py` | `results/consolidated/` |
+| Parâmetros | 180 | `run_parameter_experiments.sh` | `scripts/cubic/analyze_parameter_experiments.py` | `results/parameter_experiments/consolidated/` |
+| Robustez | 675 | `run_robustness_experiments.sh` | `scripts/cubic/analyze_robustness_experiments.py` | `results/robustness_experiments/consolidated/` |
+
+Não copie os CSVs de uma campanha para o diretório de outra. Cada consolidator procura entradas e grava saídas em caminhos próprios.
+
+## 12. Referência rápida dos arquivos importantes
+
+| Arquivo | Responsabilidade |
 | --- | --- |
-| `results/consolidated/` | Consolidação dos experimentos iniciais (45 simulações) |
-| `results/robustness_experiments/` | Dados brutos da campanha de robustez |
-| `results/robustness_experiments/consolidated/` | Consolidação da campanha de robustez (675 simulações) |
-
-Os resultados consolidados devem sempre ser interpretados considerando a versão da instrumentação e dos scripts utilizada para produzi-los. Em particular, alterações recentes nos callbacks dos traces exigem novas execuções para que as métricas internas de CWND, RTT, InFlight e SSThresh representem a instrumentação corrigida.
-
-**Não há, neste README, uma conclusão de superioridade do CUBIC-RTT.** Essa conclusão depende da análise comparativa e estatística dos resultados experimentais.
-
-## Estado atual do projeto
-
-### Implementado e executado
-
-- [x] Ambiente ns-3 integrado ao projeto.
-- [x] Implementação experimental `TcpCubicRtt`.
-- [x] Experimento próprio `cubic-experiment`.
-- [x] Topologia com dois gateways e enlace de gargalo.
-- [x] Execução de CUBIC, CUBIC-RTT e BBR.
-- [x] Coleta de métricas do FlowMonitor.
-- [x] Instrumentação de CWND, RTT, BytesInFlight e SSThresh.
-- [x] Automação e execução da campanha de robustez de 675 simulações.
-- [x] Consolidação dos resultados da campanha de robustez.
-- [x] Validação estrutural dos CSVs e consistência de métricas agregadas e por fluxo.
-- [x] Correção dos callbacks para que cada trace registre sua própria métrica, sem escrita cruzada entre CWND e SSThresh.
-- [x] Ajustes no processamento de BytesInFlight e do valor sentinela de SSThresh.
-- [x] Compilação e execução de uma simulação curta para verificar a geração dos traces após as alterações.
-
-### Em andamento
-
-- [ ] Executar uma nova bateria com a instrumentação corrigida.
-- [ ] Consolidar novamente os traces gerados pela instrumentação atualizada.
-- [ ] Comparar os resultados de desempenho e comportamento interno dos algoritmos.
-- [ ] Produzir gráficos e tabelas finais.
-- [ ] Realizar a análise estatística e discutir limitações dos experimentos.
-- [ ] Documentar a formulação completa e a justificativa dos parâmetros da proposta CUBIC-RTT.
-
-## Tecnologias
-
-- **C++:** implementação dos algoritmos e dos experimentos.
-- **ns-3:** simulador de redes utilizado nos experimentos.
-- **Python:** automação, processamento e análise dos resultados.
-- **TCP CUBIC / CUBIC-RTT / BBR:** algoritmos comparados.
-- **FlowMonitor:** coleta de métricas dos fluxos.
-
-## Escopo e reprodutibilidade
-
-Este repositório reúne o código da proposta, a configuração dos experimentos e os scripts utilizados para processar os resultados. Para reproduzir uma campanha, é importante registrar:
-
-- versão/commit do ns-3 utilizado;
-- versão do código dos algoritmos;
-- parâmetros de cada cenário;
-- parâmetros Alpha e Gamma;
-- duração e quantidade de repetições;
-- scripts utilizados na execução e consolidação.
-
-Como os resultados dependem da versão do código e da instrumentação, novas campanhas devem ser armazenadas em diretórios próprios, sem sobrescrever os dados de campanhas anteriores.
+| `tcp-cubic-rtt.h/.cc` | Classe e lógica do TCP CUBIC-RTT |
+| `cubic-experiment.cc` | Topologia, configuração da simulação, aplicações e traces |
+| `run_scenarios.sh` | Execução da campanha inicial |
+| `run_parameter_experiments.sh` | Execução das combinações adicionais de Alpha/Gamma |
+| `run_robustness_experiments.sh` | Execução automatizada da campanha de robustez |
+| `analyze_results.py` | Parser do FlowMonitor e leitor de traces |
+| `consolidate_results.py` | Consolidação da campanha inicial e funções compartilhadas |
+| `analyze_parameter_experiments.py` | Consolidação da campanha de parâmetros |
+| `analyze_robustness_experiments.py` | Consolidação da campanha de robustez |
 
 ---
 
 ## Autor
 
-**Thales Gomes Batista**
+Thales Gomes Batista
 
-Projeto acadêmico desenvolvido no contexto do curso de Ciência da Computação — Universidade Federal de Juiz de Fora (UFJF).
+Ciência da Computação — Universidade Federal de Juiz de Fora (UFJF).
