@@ -20,10 +20,10 @@ O sinal não tem unidade e permite comparar aumentos relativos entre caminhos co
 ## Como ele influencia os parâmetros
 
 - C: `C_base / (1 + Alpha * EWMA)`. Quando o RTT cresce proporcionalmente, o crescimento cúbico fica mais conservador.
-- Beta: `clamp(Beta_base - Gamma * EWMA, BetaMin, BetaMax)`. Quando o RTT cresce proporcionalmente, a redução multiplicativa após perda fica um pouco mais forte.
+- Beta permanece com a adaptação original por RTT mínimo/referência. Não o alteramos nesta primeira hipótese, para isolar o efeito da nova variável sobre o crescimento da janela.
 - O EWMA é reiniciado em `CubicReset()`, evitando carregar o sinal de uma época anterior à perda.
 
-Com os valores padrão (Alpha=0.25, Gamma=0.05), e antes dos limites, o efeito máximo do sinal (EWMA=1) é reduzir C em 20% em relação ao C adaptativo-base e reduzir Beta em até 0.05. O sinal é limitado a [0,1].
+Com Alpha=0.25 e EWMA=1, o fator adicional reduz C em 20% em relação ao C adaptativo-base. O sinal é limitado a [0,1].
 
 ## Aplicação local no submodule
 
