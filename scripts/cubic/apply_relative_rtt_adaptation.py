@@ -63,17 +63,6 @@ cc = replace_once(
     "adaptação de C pelo aumento relativo do RTT",
 )
 
-# Beta adaptation: a larger relative RTT increase produces a slightly lower
-# beta (a stronger multiplicative decrease), bounded by BetaMin/BetaMax.
-cc = replace_once(
-    cc,
-    "    double beta = m_beta + m_gamma * x;\n\n    return std::clamp(beta, m_betaMin, m_betaMax);",
-    "    double beta = m_beta + m_gamma * x;\n"
-    "    beta -= m_gamma * m_rttIncreaseEwma;\n\n"
-    "    return std::clamp(beta, m_betaMin, m_betaMax);",
-    "adaptação de Beta pelo aumento relativo do RTT",
-)
-
 # Update the signal on each accepted RTT sample. The relative increase is
 # clamped to [0, 1] and smoothed with an EWMA (10% new sample, 90% history).
 cc = replace_once(
