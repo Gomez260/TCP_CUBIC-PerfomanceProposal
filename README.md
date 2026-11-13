@@ -456,10 +456,21 @@ As campanhas possuem objetivos operacionais e diretórios de entrada/saída dist
 | Campanha | Execuções planejadas | Script de execução | Script de consolidação | Saída consolidada |
 | --- | ---: | --- | --- | --- |
 | Inicial | 45 | `scripts/cubic/run_scenarios.sh` | `scripts/cubic/consolidate_results.py` | `results/consolidated/` |
-| Parâmetros | 180 | `run_parameter_experiments.sh` | `scripts/cubic/analyze_parameter_experiments.py` | `results/parameter_experiments/consolidated/` |
+| Parâmetros | 135 | `scripts/run_parameter_experiments.sh` | `scripts/cubic/analyze_parameter_experiments.py` | `results/parameter_experiments/consolidated/` |
 | Robustez | 675 | `run_robustness_experiments.sh` | `scripts/cubic/analyze_robustness_experiments.py` | `results/robustness_experiments/consolidated/` |
 
 Não copie os CSVs de uma campanha para o diretório de outra. Cada consolidator procura entradas e grava saídas em caminhos próprios.
+
+### 5.4 Campanhas adicionais: convivência e variação de cenários
+
+As campanhas adicionais são preparadas por:
+
+- `scripts/run_coexistence_experiments.sh`: 8 fluxos concorrentes, com CUBIC e CUBIC-RTT alternados em quatro classes de atraso de acesso (10, 30, 60 e 90 ms), gargalo padrão de 10 Mbps e cinco repetições. Total padrão: 15 simulações.
+- `scripts/run_scenario_variation.sh`: três perfis de atraso de acesso, três bandas de gargalo (10, 50 e 100 Mbps), três atrasos de gargalo (10, 50 e 100 ms) e cinco repetições. Total padrão: 135 simulações.
+
+Ambos usam aquecimento de 20 s, medição de 300 s e fila de 1 BDP. Antes de iniciar uma campanha completa, execute uma repetição de teste e confira os logs, FlowMonitor, traces e a associação de algoritmos aos fluxos. Os scripts pressupõem que o executável do submodule já aceita `--flow_algorithms`, `--access_delays`, `--warmup`, `--random_start_max` e `--queue_bdp`; não alteram o submodule.
+
+A comparação de parâmetros fixos será feita com a campanha existente de aproximadamente 600 simulações, sem duplicá-la. É necessário identificar os resultados que correspondem aos valores fixos de C e Beta equivalentes aos efetivamente calculados pela variante; Alpha e Gamma não são, por si só, esses valores finais.
 
 ## 12. Referência rápida dos arquivos importantes
 
@@ -469,7 +480,9 @@ Não copie os CSVs de uma campanha para o diretório de outra. Cada consolidator
 | `cubic-experiment.cc` | Topologia, configuração da simulação, aplicações e traces |
 | `run_scenarios.sh` | Execução da campanha inicial |
 | `run_parameter_experiments.sh` | Execução das combinações adicionais de Alpha/Gamma |
-| `run_robustness_experiments.sh` | Execução automatizada da campanha de robustez |
+| `scripts/run_robustness_experiments.sh` | Execução automatizada da campanha de robustez |
+| `scripts/run_coexistence_experiments.sh` | Convivência entre CUBIC e CUBIC-RTT |
+| `scripts/run_scenario_variation.sh` | Variação de RTT, banda e atraso do gargalo |
 | `analyze_results.py` | Parser do FlowMonitor e leitor de traces |
 | `consolidate_results.py` | Consolidação da campanha inicial e funções compartilhadas |
 | `analyze_parameter_experiments.py` | Consolidação da campanha de parâmetros |
