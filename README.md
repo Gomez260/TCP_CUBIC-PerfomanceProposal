@@ -241,13 +241,17 @@ results/
 \-- CubicRtt/atraso_<delay>/run_<n>/
 ```
 
-### 5.2 Experimentos de parâmetros — 180 simulações
+### 5.2 Experimentos de parâmetros — grade balanceada de 135 simulações
 
-O script `run_parameter_experiments.sh` executa combinações adicionais de Alpha e Gamma para `TcpCubicRtt`.
+O script `run_parameter_experiments.sh` executa uma grade fatorial balanceada de Alpha e Gamma para `TcpCubicRtt`.
 
-A matriz do script contém 12 combinações de parâmetros, 3 atrasos e 5 repetições:
+A grade atual contém Alpha = {0.10, 0.25, 0.50}, Gamma = {0.00, 0.05, 0.10}, 3 atrasos e 5 repetições:
 
-`12 × 3 × 5 = 180` simulações.
+`3 × 3 × 3 × 5 = 135` simulações.
+
+A configuração baseline é definida a priori como Alpha=0.25 e Gamma=0.05. As demais oito combinações são tratadas como análise de sensibilidade, não como candidatas das quais se escolhe retrospectivamente a melhor.
+
+O script pula diretórios que já contenham um FlowMonitor não vazio para evitar sobrescrever resultados anteriores. A opção `--run` é repassada ao ns-3, mas isso, isoladamente, não prova que a simulação tenha fontes aleatórias efetivamente diferentes. A independência das repetições precisa ser validada no código do simulador antes de inferência estatística.
 
 Os resultados são gravados em:
 
@@ -257,7 +261,7 @@ O script `scripts/cubic/analyze_parameter_experiments.py` processa essa campanha
 
 `results/parameter_experiments/consolidated/`
 
-### 5.3 Campanha de robustez — 675 simulações
+### 5.3 Campanha de robustez legada — 675 simulações
 
 O script `run_robustness_experiments.sh` percorre três cenários de rede, quinze configurações de algoritmo/parâmetros, três atrasos e cinco repetições:
 
