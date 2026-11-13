@@ -66,7 +66,7 @@ for profile in low heterogeneous high; do
                         --random_start_max=$RANDOM_START_MAX
                         --queue_bdp=$QUEUE_BDP
                         --run=$run
-                        --tracing=true
+                        --tracing=false
                         --flow_monitor=true
                         --results_dir=$run_dir"
                     if [[ "$mode" == "adaptive" ]]; then
