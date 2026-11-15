@@ -5,7 +5,8 @@ PROJECT_DIR="${PROJECT_DIR:-$HOME/TCP_CUBIC-PerfomanceProposal}"
 NS3_DIR="$PROJECT_DIR/ns3/ns-3-dev-git"
 RESULTS_DIR="$PROJECT_DIR/results/fixed_parameter_campaign"
 REPETITIONS="${REPETITIONS:-5}"
-MAX_JOBS="${MAX_JOBS:-4}"
+# Seis processos exploram melhor o Ryzen 7 3700X sem ocupar todas as 8 CPUs físicas.
+MAX_JOBS="${MAX_JOBS:-6}"
 NUM_FLOWS=4
 ACCESS_BANDWIDTH="${ACCESS_BANDWIDTH:-1Gbps}"
 WARMUP=20
