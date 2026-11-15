@@ -5,7 +5,7 @@ PROJECT_DIR="${PROJECT_DIR:-$HOME/TCP_CUBIC-PerfomanceProposal}"
 NS3_DIR="$PROJECT_DIR/ns3/ns-3-dev-git"
 RESULTS_DIR="$PROJECT_DIR/results/fixed_parameter_campaign"
 REPETITIONS="${REPETITIONS:-5}"
-MAX_JOBS="${MAX_JOBS:-2}"
+MAX_JOBS="${MAX_JOBS:-4}"
 NUM_FLOWS=4
 ACCESS_BANDWIDTH="${ACCESS_BANDWIDTH:-1Gbps}"
 WARMUP=20
@@ -114,27 +114,29 @@ if (( ${#TASKS[@]} > 0 )); then
         return 1
     }
 
-    # Executa em lotes limitados. O wrapper do ns-3 não recompila dentro dos workers.
-    for ((offset=0; offset<${#TASKS[@]}; offset+=MAX_JOBS)); do
-        pids=()
-        batch_tasks=()
-        limit=$((offset + MAX_JOBS))
-        (( limit > ${#TASKS[@]} )) && limit=${#TASKS[@]}
+    # Pool dinamico: assim que qualquer simulacao termina, a proxima tarefa
+    # pendente ocupa a vaga. Isso evita deixar CPUs ociosas esperando o fim
+    # do lote inteiro quando as duracoes das simulacoes sao diferentes.
+    next_task=0
+    active_jobs=0
+    total_tasks=${#TASKS[@]}
 
-        for ((i=offset; i<limit; i++)); do
-            run_one "${TASKS[$i]}" &
-            pids+=("$!")
-            batch_tasks+=("${TASKS[$i]}")
+    while (( next_task < total_tasks || active_jobs > 0 )); do
+        while (( next_task < total_tasks && active_jobs < MAX_JOBS )); do
+            run_one "${TASKS[$next_task]}" &
+            next_task=$((next_task + 1))
+            active_jobs=$((active_jobs + 1))
         done
 
-        for i in "${!pids[@]}"; do
-            if wait "${pids[$i]}"; then
+        if (( active_jobs > 0 )); then
+            if wait -n; then
                 EXECUTED=$((EXECUTED + 1))
             else
                 FAILED=$((FAILED + 1))
             fi
-        done
-        echo "Progresso: executadas nesta retomada=$EXECUTED puladas=$SKIPPED falhas=$FAILED planejadas=$EXPECTED"
+            active_jobs=$((active_jobs - 1))
+            echo "Progresso: finalizadas nesta retomada=$((EXECUTED + FAILED)) executadas=$EXECUTED puladas=$SKIPPED falhas=$FAILED pendentes_na_fila=$((total_tasks - next_task)) planejadas=$EXPECTED"
+        fi
     done
 fi
 
