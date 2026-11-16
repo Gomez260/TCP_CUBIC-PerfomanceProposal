@@ -321,7 +321,7 @@ def plot_robustness_campaign(root, output_dir):
 def coexistence_metadata(xml_path, root):
     relative_parent = xml_path.relative_to(root).parent
     parts = list(relative_parent.parts)
-    if parts and re.fullmatch(r"run[_-]?\\d+", parts[-1], re.IGNORECASE):
+    if parts and re.fullmatch(r"run[_-]?\d+", parts[-1], re.IGNORECASE):
         parts = parts[:-1]
     label = "/".join(parts) if parts else "coexistence"
     return {"experiment": label, "repetition": relative_parent.name}
@@ -353,7 +353,7 @@ def plot_coexistence_timeseries(root, output_dir):
                 values = [sample[1] for sample in samples]
                 if metric == "rtt":
                     values = [value * 1000 for value in values]
-                flow_match = re.search(r"flow(\\d+)", trace.name, re.IGNORECASE)
+                flow_match = re.search(r"flow(\d+)", trace.name, re.IGNORECASE)
                 label = f"Fluxo {flow_match.group(1)}" if flow_match else trace.stem
                 ax.plot(times, values, linewidth=1.1, label=label)
                 plotted = True
@@ -429,9 +429,9 @@ def main():
         generated += plot_coexistence_campaign(args.coexistence_dir, args.output_dir / "coexistence")
 
     if generated == 0:
-        print("\\nNenhum grafico foi gerado. Confira os caminhos e os arquivos de entrada.")
+        print("\nNenhum grafico foi gerado. Confira os caminhos e os arquivos de entrada.")
         raise SystemExit(1)
-    print(f"\\nConcluido: {generated} grafico(s) em PNG e PDF.")
+    print(f"\nConcluido: {generated} grafico(s) em PNG e PDF.")
 
 
 if __name__ == "__main__":
