@@ -5,8 +5,8 @@ PROJECT_DIR="${PROJECT_DIR:-$HOME/TCP_CUBIC-PerfomanceProposal}"
 NS3_DIR="$PROJECT_DIR/ns3/ns-3-dev-git"
 RESULTS_DIR="$PROJECT_DIR/results/fixed_parameter_campaign"
 REPETITIONS="${REPETITIONS:-5}"
-# Seis processos exploram melhor o Ryzen 7 3700X sem ocupar todas as 8 CPUs físicas.
-MAX_JOBS="${MAX_JOBS:-6}"
+# Limita a concorrência para reduzir o consumo de CPU e memória.
+MAX_JOBS="${MAX_JOBS:-3}"
 NUM_FLOWS=4
 ACCESS_BANDWIDTH="${ACCESS_BANDWIDTH:-1Gbps}"
 WARMUP=20
@@ -59,10 +59,11 @@ for profile in low heterogeneous high; do
                     run_dir="$RESULTS_DIR/$profile/$bandwidth/${delay}ms/$mode/run_$run"
                     flowmonitor="$run_dir/CubicExperiment.flowmonitor"
                     mkdir -p "$run_dir"
-                    if [[ -s "$flowmonitor" ]]; then
+                    if [[ -f "$run_dir/DONE" && -s "$flowmonitor" ]]; then
                         echo "[PULANDO] $profile/$bandwidth/${delay}ms/$mode/run_$run"
                         SKIPPED=$((SKIPPED + 1))
                     else
+                        rm -f "$run_dir/DONE" "$flowmonitor"
                         TASKS+=("$profile|$bandwidth|$delay|$mode|$run|$protocol|$access_delays|$run_dir")
                     fi
                 done
