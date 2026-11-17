@@ -2704,3 +2704,67 @@ Tracing mantido: o analisador extrai cwnd, RTT, inflight e ssth dos traces.
 [PULANDO] access100/CubicRtt_A0.75_G0.10/100ms/run_4
 [PULANDO] access100/CubicRtt_A0.75_G0.10/100ms/run_5
 FIM | executadas=0 puladas=675 falhas=0 esperadas=675
+BATERIA ROBUSTEZ | Mon Nov 16 20:54:03 -03 2026 | esperadas=675
+Build esperado: optimized | duracao=100 s | repeticoes=5
+Tracing mantido: o analisador extrai cwnd, RTT, inflight e ssth dos traces.
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_1
+[OK]
+executadas=1 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_2
+[OK]
+executadas=2 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_3
+[OK]
+executadas=3 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_4
+[OK]
+executadas=4 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/10ms/run_5
+[OK]
+executadas=5 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_1
+[OK]
+executadas=6 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_2
+[OK]
+executadas=7 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_3
+[OK]
+executadas=8 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_4
+[OK]
+executadas=9 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/50ms/run_5
+[OK]
+executadas=10 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_1
+[OK]
+executadas=11 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_2
+[OK]
+executadas=12 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_3
+[OK]
+executadas=13 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_4
+[OK]
+executadas=14 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Cubic/100ms/run_5
+[OK]
+executadas=15 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_1
+[OK]
+executadas=16 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_2
+[OK]
+executadas=17 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_3
+[OK]
+executadas=18 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_4
+[OK]
+executadas=19 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/10ms/run_5
+[OK]
+executadas=20 puladas=0 falhas=0
+[EXECUTANDO] bw1_f4/Bbr/50ms/run_1

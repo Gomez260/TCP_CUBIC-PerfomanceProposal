@@ -198,6 +198,7 @@ def load_flowmonitor_rows(root, metadata_parser):
     return rows
 
 
+
 def plot_parameter_campaign(root, output_dir):
     rows = load_flowmonitor_rows(root, parse_parameters_metadata)
     if not rows:
@@ -206,43 +207,110 @@ def plot_parameter_campaign(root, output_dir):
 
     write_csv(output_dir / "resumo_parameters.csv", rows)
     generated = 0
-    groups = sorted({(row["scenario"], row["bandwidth_label"]) for row in rows})
+    groups = sorted({
+        (row["scenario"], row["bandwidth_label"])
+        for row in rows
+    })
 
     for scenario, bandwidth in groups:
-        subset = [row for row in rows if row["scenario"] == scenario and row["bandwidth_label"] == bandwidth]
+        subset = [
+            row for row in rows
+            if row["scenario"] == scenario
+            and row["bandwidth_label"] == bandwidth
+        ]
+
         delays = sorted({row["delay_ms"] for row in subset})
-        algorithms = [name for name in ("cubic", "adaptive", "fixed") if any(row["algorithm"] == name for row in subset)]
+        algorithms = [
+            name for name in ("cubic", "adaptive", "fixed")
+            if any(row["algorithm"] == name for row in subset)
+        ]
 
         for metric, title, ylabel in METRICS:
-            fig, ax = plt.subplots(figsize=(8.5, 5.2))
+            # Mantem somente algoritmos com dados para esta metrica.
+            available_algorithms = [
+                algorithm for algorithm in algorithms
+                if any(
+                    numeric(row.get(metric)) is not None
+                    for row in subset
+                    if row["algorithm"] == algorithm
+                )
+            ]
+
+            if not available_algorithms:
+                continue
+
+            # Um painel independente para cada algoritmo.
+            fig, axes = plt.subplots(
+                nrows=len(available_algorithms),
+                ncols=1,
+                figsize=(8.5, 3.2 * len(available_algorithms)),
+                sharex=True,
+                sharey=True,
+                squeeze=False
+            )
+
+            axes = axes.flatten()
             plotted = False
-            for algorithm in algorithms:
+
+            for ax, algorithm in zip(axes, available_algorithms):
                 xs, ys, errors = [], [], []
+
                 for delay in delays:
-                    values = [numeric(row.get(metric)) for row in subset
-                              if row["algorithm"] == algorithm and row["delay_ms"] == delay]
+                    values = [
+                        numeric(row.get(metric))
+                        for row in subset
+                        if row["algorithm"] == algorithm
+                        and row["delay_ms"] == delay
+                    ]
+
                     average, deviation = mean_std(values)
+
                     if average is not None:
                         xs.append(delay)
                         ys.append(average)
                         errors.append(deviation)
+
                 if xs:
-                    ax.errorbar(xs, ys, yerr=errors, marker="o", capsize=4, linewidth=2,
-                                label=ALGORITHM_LABELS.get(algorithm, algorithm))
+                    ax.errorbar(
+                        xs,
+                        ys,
+                        yerr=errors,
+                        marker="o",
+                        capsize=4,
+                        linewidth=2,
+                        markersize=6
+                    )
                     plotted = True
-            if plotted:
-                ax.set_title(f"{title} — Parameters ({scenario}, {bandwidth})")
-                ax.set_xlabel("Atraso do enlace de gargalo (ms)")
+
+                ax.set_title(
+                    ALGORITHM_LABELS.get(algorithm, algorithm)
+                )
                 ax.set_ylabel(ylabel)
                 ax.set_xticks(delays)
                 ax.grid(True, alpha=0.3)
-                ax.legend()
-                save_figure(fig, output_dir, f"{scenario}_{bandwidth}_{metric}")
+
+            if plotted:
+                fig.suptitle(
+                    f"{title} — Parameters ({scenario}, {bandwidth})",
+                    fontsize=13
+                )
+                axes[-1].set_xlabel(
+                    "Atraso do enlace de gargalo (ms)"
+                )
+
+                fig.tight_layout(rect=[0, 0, 1, 0.96])
+
+                save_figure(
+                    fig,
+                    output_dir,
+                    f"{scenario}_{bandwidth}_{metric}"
+                )
                 generated += 1
             else:
                 plt.close(fig)
 
     return generated
+
 
 
 def read_csv(path):

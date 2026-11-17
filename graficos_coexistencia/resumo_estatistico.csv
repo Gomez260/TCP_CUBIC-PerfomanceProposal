@@ -1,0 +1,9 @@
+,,throughput_mbps,throughput_mbps,mean_delay_ms,mean_delay_ms,mean_jitter_ms,mean_jitter_ms,loss_percent,loss_percent
+,,mean,std,mean,std,mean,std,mean,std
+delay,algorithm,,,,,,,,
+100ms,CUBIC,1.107,0.0469,678.7776,4.0675,0.706,0.0081,0.507,0.0432
+100ms,CUBIC-RTT,1.3746,0.0471,678.2912,3.4399,0.6556,0.0138,0.459,0.0332
+10ms,CUBIC,1.2492,0.0577,450.008,2.8204,0.61,0.0092,0.2465,0.0196
+10ms,CUBIC-RTT,1.2345,0.0578,449.7001,2.8508,0.6131,0.008,0.2416,0.0205
+50ms,CUBIC,1.2068,0.0565,552.7759,2.9685,0.6487,0.0143,0.3229,0.0177
+50ms,CUBIC-RTT,1.2757,0.0563,552.6025,2.8133,0.638,0.0082,0.3177,0.0306
